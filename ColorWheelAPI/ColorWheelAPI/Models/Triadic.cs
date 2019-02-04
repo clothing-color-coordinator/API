@@ -23,7 +23,9 @@ namespace ColorWheelAPI.Models
         public int ColorThreeID { get; set; }
       
 
-        //Navigation
+        /// <summary>
+        /// Navigation
+        /// </summary>
         public Color Color { get; set; }
     }
 }

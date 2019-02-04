@@ -11,5 +11,12 @@ namespace ColorWheelAPI.Models
         /// Primary Key
         /// </summary>
         public int ID { get; set; }
+
+        /// <summary>
+        /// Properties
+        /// </summary>
+        public string ColorName { get; set; }
+        public string HexCode { get; set; }
+
     }
 }

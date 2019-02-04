@@ -43,7 +43,18 @@ namespace ColorWheelAPI.Data
             );
 
             modelBuilder.Entity<Analogous>().HasData(
-
+                new Analogous { ID = 1, ColorOneID = 1, ColorTwoID = 2, ColorThreeID = 12 },
+                new Analogous { ID = 2, ColorOneID = 2, ColorTwoID = 3, ColorThreeID = 1 },
+                new Analogous { ID = 3, ColorOneID = 3, ColorTwoID = 4, ColorThreeID = 2 },
+                new Analogous { ID = 4, ColorOneID = 4, ColorTwoID = 5, ColorThreeID = 3 },
+                new Analogous { ID = 5, ColorOneID = 5, ColorTwoID = 6, ColorThreeID = 4 },
+                new Analogous { ID = 6, ColorOneID = 6, ColorTwoID = 7, ColorThreeID = 5 },
+                new Analogous { ID = 7, ColorOneID = 7, ColorTwoID = 8, ColorThreeID = 6 },
+                new Analogous { ID = 8, ColorOneID = 8, ColorTwoID = 9, ColorThreeID = 7 },
+                new Analogous { ID = 9, ColorOneID = 9, ColorTwoID = 10, ColorThreeID = 8 },
+                new Analogous { ID = 10, ColorOneID = 10, ColorTwoID = 11, ColorThreeID = 9 },
+                new Analogous { ID = 11, ColorOneID = 11, ColorTwoID = 12, ColorThreeID = 10 },
+                new Analogous { ID = 12, ColorOneID = 12, ColorTwoID = 1, ColorThreeID = 11 }
             );
 
         }

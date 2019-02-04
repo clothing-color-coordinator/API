@@ -58,6 +58,11 @@ namespace ColorWheelAPI.Data
                 new Analogous { ID = 12, ColorOneID = 12, ColorTwoID = 1, ColorThreeID = 11 }
             );
 
+            modelBuilder.Entity<Complimentary>()
+                .HasData(
+                    
+                );
+
         }
 
         public DbSet<Color> Colors { get; set; } 

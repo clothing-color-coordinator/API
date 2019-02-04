@@ -42,6 +42,10 @@ namespace ColorWheelAPI.Data
                 new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" }
             );
 
+            modelBuilder.Entity<Analogous>().HasData(
+
+            );
+
         }
 
         public DbSet<Color> Colors { get; set; } 

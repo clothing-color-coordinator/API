@@ -43,6 +43,9 @@ namespace ColorWheelAPI.Data
             modelBuilder.Entity<Analogous>().HasData(
 
             );
+
+            public DbSet<Color> Colors { get; set; }
+
         }
     }
 }

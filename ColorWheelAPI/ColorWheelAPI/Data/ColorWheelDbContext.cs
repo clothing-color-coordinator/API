@@ -19,6 +19,10 @@ namespace ColorWheelAPI.Data
         }
 
 
+        /// <summary>
+        /// This method allows us to seed the data
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Color>().HasData(

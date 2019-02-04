@@ -27,6 +27,6 @@ namespace ColorWheelAPI.Models
 
 
         //Navigation
-        public Colors Color { get; set; }
+        public Color Color { get; set; }
     }
 }

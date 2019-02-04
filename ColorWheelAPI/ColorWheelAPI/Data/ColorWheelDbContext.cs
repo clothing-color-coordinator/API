@@ -71,6 +71,21 @@ namespace ColorWheelAPI.Data
                     new Complimentary { ID = 5, ColorOneID = 5, ColorTwoID = 11 },
                     new Complimentary { ID = 6, ColorOneID = 6, ColorTwoID = 12 });
 
+            modelBuilder.Entity<SplitComplimentary>()
+                .HasData(
+                    new SplitComplimentary { ID = 1, ColorOneID = 1, ColorTwoID = 6, ColorThreeID = 8 },
+                    new SplitComplimentary { ID = 2, ColorOneID = 2, ColorTwoID = 7, ColorThreeID = 9 },
+                    new SplitComplimentary { ID = 3, ColorOneID = 3, ColorTwoID = 8, ColorThreeID = 10 },
+                    new SplitComplimentary { ID = 4, ColorOneID = 4, ColorTwoID = 9, ColorThreeID = 11 },
+                    new SplitComplimentary { ID = 5, ColorOneID = 5, ColorTwoID = 10, ColorThreeID = 12 },
+                    new SplitComplimentary { ID = 6, ColorOneID = 6, ColorTwoID = 11, ColorThreeID = 1 },
+                    new SplitComplimentary { ID = 7, ColorOneID = 7, ColorTwoID = 12, ColorThreeID = 2 },
+                    new SplitComplimentary { ID = 8, ColorOneID = 8, ColorTwoID = 1, ColorThreeID = 3 },
+                    new SplitComplimentary { ID = 9, ColorOneID = 9, ColorTwoID = 2, ColorThreeID = 4 },
+                    new SplitComplimentary { ID = 10, ColorOneID = 10, ColorTwoID = 3, ColorThreeID = 5 },
+                    new SplitComplimentary { ID = 11, ColorOneID = 11, ColorTwoID = 4, ColorThreeID = 6 },
+                    new SplitComplimentary { ID = 12, ColorOneID = 12, ColorTwoID = 5, ColorThreeID = 7 });
+
         }
 
         public DbSet<Color> Colors { get; set; } 

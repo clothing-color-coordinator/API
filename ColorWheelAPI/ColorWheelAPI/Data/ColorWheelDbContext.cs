@@ -26,6 +26,7 @@ namespace ColorWheelAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Analogous>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID });
+            modelBuilder.Entity<Complimentary>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID });
 
             modelBuilder.Entity<Color>().HasData(
                 new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" },

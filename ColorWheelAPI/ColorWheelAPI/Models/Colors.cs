@@ -7,5 +7,9 @@ namespace ColorWheelAPI.Models
 {
     public class Colors
     {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
+        public int ID { get; set; }
     }
 }

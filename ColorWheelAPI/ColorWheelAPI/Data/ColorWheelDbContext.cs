@@ -27,6 +27,7 @@ namespace ColorWheelAPI.Data
         {
             modelBuilder.Entity<Analogous>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID });
             modelBuilder.Entity<Complimentary>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID });
+            modelBuilder.Entity<Monochromatic>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID });
 
             modelBuilder.Entity<Color>()
                 .HasData(

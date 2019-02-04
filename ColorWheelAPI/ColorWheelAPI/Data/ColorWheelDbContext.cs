@@ -71,5 +71,6 @@ namespace ColorWheelAPI.Data
 
         public DbSet<Color> Colors { get; set; } 
         public DbSet<Analogous> AnalogousPalettes { get; set; }
+        public DbSet<Complimentary> ComplimentaryPalettes { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ColorWheelAPI.Models
 {
-    public class Colors
+    public class Color
     {
         /// <summary>
         /// Primary Key

@@ -20,7 +20,7 @@ namespace ColorWheelAPI.Data
 
 
         /// <summary>
-        /// This method allows us to seed the data
+        /// This method allows us to seed data in the database when the table is added
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)

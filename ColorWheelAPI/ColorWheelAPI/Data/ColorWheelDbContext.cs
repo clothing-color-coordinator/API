@@ -60,8 +60,12 @@ namespace ColorWheelAPI.Data
 
             modelBuilder.Entity<Complimentary>()
                 .HasData(
-                    
-                );
+                    new Complimentary { ID = 1, ColorOneID = 1, ColorTwoID = 7 },
+                    new Complimentary { ID = 2, ColorOneID = 2, ColorTwoID = 8 },
+                    new Complimentary { ID = 3, ColorOneID = 3, ColorTwoID = 9 },
+                    new Complimentary { ID = 4, ColorOneID = 4, ColorTwoID = 10 },
+                    new Complimentary { ID = 5, ColorOneID = 5, ColorTwoID = 11 },
+                    new Complimentary { ID = 6, ColorOneID = 6, ColorTwoID = 12 });
 
         }
 

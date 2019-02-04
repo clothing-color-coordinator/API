@@ -25,6 +25,8 @@ namespace ColorWheelAPI.Data
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Analogous>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID });
+
             modelBuilder.Entity<Color>().HasData(
                 new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" },
                 new Color { ID = 2, ColorName = "Yellow-Green", HexCode = "#B2D732" },
@@ -39,6 +41,7 @@ namespace ColorWheelAPI.Data
                 new Color { ID = 11, ColorName = "Orange", HexCode = "#FB9902" },
                 new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" }
             );
+
         }
 
         public DbSet<Color> Colors { get; set; } 

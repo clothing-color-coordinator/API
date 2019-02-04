@@ -21,11 +21,11 @@ namespace ColorWheelAPI.Models
         /// <summary>
         /// Navigation Properties
         /// </summary>
-        public Analogous Analogous { get; set; }
-        public Complimentary Complimentary { get; set; }
-        public Monochromatic Monochromatic { get; set; }
-        public SplitComplimentary SplitComplimentary { get; set; }
-        public Tetradic Tetradic { get; set; }
-        public Triadic Triadic { get; set; }
+        //public Analogous Analogous { get; set; }
+        //public Complimentary Complimentary { get; set; }
+        //public Monochromatic Monochromatic { get; set; }
+        //public SplitComplimentary SplitComplimentary { get; set; }
+        //public Tetradic Tetradic { get; set; }
+        //public Triadic Triadic { get; set; }
     }
 }

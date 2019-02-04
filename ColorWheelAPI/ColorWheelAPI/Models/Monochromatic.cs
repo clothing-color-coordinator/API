@@ -20,6 +20,6 @@ namespace ColorWheelAPI.Models
         public int ColorTwoID { get; set; }
 
         //Navigation
-        public Colors color { get; set; }
+        public Colors Color { get; set; }
     }
 }

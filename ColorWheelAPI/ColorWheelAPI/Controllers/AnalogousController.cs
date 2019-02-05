@@ -39,5 +39,12 @@ namespace ColorWheelAPI.Controllers
             return Ok(analogous);
         }
 
+
+        [HttpGet("{id},{id},{id}")]
+        public IActionResult Get(string id1, string id2, string id3)
+        {
+
+        }
+
     }
 }

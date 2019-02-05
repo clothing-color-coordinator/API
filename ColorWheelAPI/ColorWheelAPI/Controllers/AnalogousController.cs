@@ -22,7 +22,7 @@ namespace ColorWheelAPI.Controllers
         }
 
         /// <summary>
-        /// 
+        /// This action takes in a string id, checks that the id exists, and then returns a palette if it does
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

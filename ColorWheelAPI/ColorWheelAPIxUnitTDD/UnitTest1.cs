@@ -2,7 +2,6 @@ using System;
 using ColorWheelAPI.Models;
 using ColorWheelAPI.Data;
 using ColorWheelAPI.Controllers;
-using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace ColorWheelAPIxUnitTDD
@@ -33,6 +32,7 @@ namespace ColorWheelAPIxUnitTDD
             Assert.Equal("Red", testColor.ColorName);
             Assert.Equal("fff00", testColor.HexCode);
         }
+
         /*
         [Fact]
         public async void CrudColorsInDb()

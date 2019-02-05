@@ -3,14 +3,16 @@ using ColorWheelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ColorWheelAPI.Migrations
 {
     [DbContext(typeof(ColorWheelDbContext))]
-    partial class ColorWheelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190205173355_UpdateTableNames")]
+    partial class UpdateTableNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

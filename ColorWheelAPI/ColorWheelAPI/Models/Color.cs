@@ -18,6 +18,8 @@ namespace ColorWheelAPI.Models
         public string ColorName { get; set; }
         public string HexCode { get; set; }
 
+        public Color() { }
+
         public Color (int id)
         {
             ID = id;

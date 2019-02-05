@@ -101,5 +101,6 @@ namespace ColorWheelAPI.Data
         public DbSet<Analogous> AnalogousPalettes { get; set; }
         public DbSet<Complimentary> ComplimentaryPalettes { get; set; }
         public DbSet<SplitComplimentary> SplitComplimentaryPalettes { get; set; }
+        public DbSet<Tetradic> TetradicPalettes { get; set; }
     }
 }

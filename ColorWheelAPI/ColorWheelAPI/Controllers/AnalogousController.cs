@@ -16,6 +16,11 @@ namespace ColorWheelAPI.Controllers
     {
         private ColorWheelDbContext _context;
 
+
+        /// <summary>
+        /// Custom constructor that facilitates dependency injection.
+        /// </summary>
+        /// <param name="context"></param>
         public AnalogousController(ColorWheelDbContext context)
         {
             _context = context;
@@ -59,7 +64,7 @@ namespace ColorWheelAPI.Controllers
             // Check for palettes that have all three id colors
             // If palette is found, return true;
             // If not, return false;
-        }
+        //}
 
     }
 }

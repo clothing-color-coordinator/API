@@ -16,10 +16,16 @@ namespace ColorWheelAPI.Controllers
     {
         private ColorWheelDbContext _context;
 
+
+        /// <summary>
+        /// Custom constructor that facilitates dependency injection.
+        /// </summary>
+        /// <param name="context"></param>
         public TetradicController(ColorWheelDbContext context)
         {
             _context = context;
         }
+
 
         /// <summary>
         /// This action takes in a string id, checks that the id exists, and then returns a palette if it does

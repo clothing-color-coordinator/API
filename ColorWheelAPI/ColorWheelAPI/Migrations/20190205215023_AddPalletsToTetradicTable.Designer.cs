@@ -3,14 +3,16 @@ using ColorWheelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ColorWheelAPI.Migrations
 {
     [DbContext(typeof(ColorWheelDbContext))]
-    partial class ColorWheelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190205215023_AddPalletsToTetradicTable")]
+    partial class AddPalletsToTetradicTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -578,62 +580,6 @@ namespace ColorWheelAPI.Migrations
                             ColorTwoID = 8,
                             ColorThreeID = 12,
                             ID = 4
-                        },
-                        new
-                        {
-                            ColorOneID = 5,
-                            ColorTwoID = 9,
-                            ColorThreeID = 1,
-                            ID = 5
-                        },
-                        new
-                        {
-                            ColorOneID = 6,
-                            ColorTwoID = 10,
-                            ColorThreeID = 2,
-                            ID = 6
-                        },
-                        new
-                        {
-                            ColorOneID = 7,
-                            ColorTwoID = 11,
-                            ColorThreeID = 3,
-                            ID = 7
-                        },
-                        new
-                        {
-                            ColorOneID = 8,
-                            ColorTwoID = 12,
-                            ColorThreeID = 4,
-                            ID = 8
-                        },
-                        new
-                        {
-                            ColorOneID = 9,
-                            ColorTwoID = 1,
-                            ColorThreeID = 5,
-                            ID = 9
-                        },
-                        new
-                        {
-                            ColorOneID = 10,
-                            ColorTwoID = 2,
-                            ColorThreeID = 6,
-                            ID = 10
-                        },
-                        new
-                        {
-                            ColorOneID = 11,
-                            ColorTwoID = 3,
-                            ColorThreeID = 7,
-                            ID = 11
-                        },
-                        new
-                        {
-                            ColorOneID = 12,
-                            ColorTwoID = 4,
-                            ColorThreeID = 8,
-                            ID = 12
                         });
                 });
 

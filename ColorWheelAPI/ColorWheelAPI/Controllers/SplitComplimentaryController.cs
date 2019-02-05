@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColorWheelAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Get[controller]Palette")]
+    [Route("api/Check[controller]")]
     [ApiController]
     public class SplitComplimentaryController : ControllerBase
     {
@@ -31,9 +32,9 @@ namespace ColorWheelAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult Get(string id)
         {
-            SplitComplimentary splitComplimentary = _context.SplitComplimentary.FirstOrDefault(s => s.ID == id);
+            SplitComplimentary splitComplimentary = _context.SplitComplimentary.FirstOrDefault(s => s.Color.ColorName == id);
             if (splitComplimentary == null)
             {
                 return NotFound();

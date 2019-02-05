@@ -11,48 +11,48 @@ namespace ColorWheelAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AnalogousController : ControllerBase
+    public class TriadicController : ControllerBase
     {
         private ColorWheelDbContext _context;
 
-        public AnalogousController(ColorWheelDbContext context)
+        public TriadicController(ColorWheelDbContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Get method for Analogous table.  To View.
+        /// Get method for Triadic table.  To View.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Analogous> Get()
+        public IEnumerable<Triadic> Get()
         {
-            return _context.Analogous;
+            return _context.Triadic;
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
-            if(analogous == null)
+            Triadic triadic = _context.Triadic.FirstOrDefault(t => t.ID == id);
+            if (triadic == null)
             {
                 return NotFound();
             }
-            return Ok(analogous);
+            return Ok(triadic);
         }
 
         /// <summary>
         /// Post method for API.  To Create
         /// </summary>
-        /// <param name="analogous"></param>
+        /// <param name="triadic"></param>
         /// <returns></returns>
-        public async Task<IActionResult> Post([FromBody] Analogous analogous)
+        public async Task<IActionResult> Post([FromBody] Triadic triadic)
         {
-            if(analogous != null)
+            if (triadic != null)
             {
-                await _context.Analogous.AddAsync(analogous);
+                await _context.Triadic.AddAsync(triadic);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Get", new { analogous.ID });
+                return RedirectToAction("Get", new { triadic.ID });
             }
 
             return NotFound();
@@ -62,35 +62,35 @@ namespace ColorWheelAPI.Controllers
         /// Put method for API.  To Update
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="analogous"></param>
+        /// <param name="triadic"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Analogous analogous)
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Triadic triadic)
         {
-            Analogous resultAnalogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
+            Triadic resultTriadic = _context.Triadic.FirstOrDefault(t => t.ID == id);
 
-            if(id != resultAnalogous.ID)
+            if (id != resultTriadic.ID)
             {
                 return BadRequest(ModelState);
             }
 
-            if(resultAnalogous == null)
+            if (resultTriadic == null)
             {
-                return RedirectToAction("Post", resultAnalogous);
+                return RedirectToAction("Post", resultTriadic);
             }
 
-            resultAnalogous.ColorOneID = analogous.ColorOneID;
-            resultAnalogous.ColorTwoID = analogous.ColorTwoID;
-            resultAnalogous.ColorThreeID = analogous.ColorThreeID;
+            resultTriadic.ColorOneID = triadic.ColorOneID;
+            resultTriadic.ColorTwoID = triadic.ColorTwoID;
+            resultTriadic.ColorThreeID = triadic.ColorThreeID;
 
-            _context.Update(resultAnalogous);
+            _context.Update(resultTriadic);
             await _context.SaveChangesAsync();
 
-            return Ok("AnalogousColors");
+            return Ok("TriadicColors");
         }
 
         /// <summary>
-        /// To Delete the Analogous.  Might not need this for API
+        /// To Delete the Triadic.  Might not need this for API
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete]
@@ -102,7 +102,7 @@ namespace ColorWheelAPI.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await _context.DeleteAnalogous(id);
+            await _context.DeleteTriadic(id);
 
         }
         */

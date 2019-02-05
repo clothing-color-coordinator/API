@@ -11,48 +11,48 @@ namespace ColorWheelAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AnalogousController : ControllerBase
+    public class TetradicController : ControllerBase
     {
         private ColorWheelDbContext _context;
 
-        public AnalogousController(ColorWheelDbContext context)
+        public TetradicController(ColorWheelDbContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Get method for Analogous table.  To View.
+        /// Get method for Tetradic table.  To View.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Analogous> Get()
+        public IEnumerable<Tetradic> Get()
         {
-            return _context.Analogous;
+            return _context.Tetradic;
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
-            if(analogous == null)
+            Tetradic tetradic = _context.Tetradic.FirstOrDefault(t => t.ID == id);
+            if (tetradic == null)
             {
                 return NotFound();
             }
-            return Ok(analogous);
+            return Ok(tetradic);
         }
 
         /// <summary>
         /// Post method for API.  To Create
         /// </summary>
-        /// <param name="analogous"></param>
+        /// <param name="tetradic"></param>
         /// <returns></returns>
-        public async Task<IActionResult> Post([FromBody] Analogous analogous)
+        public async Task<IActionResult> Post([FromBody] Tetradic tetradic)
         {
-            if(analogous != null)
+            if (tetradic != null)
             {
-                await _context.Analogous.AddAsync(analogous);
+                await _context.Tetradic.AddAsync(tetradic);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Get", new { analogous.ID });
+                return RedirectToAction("Get", new { tetradic.ID });
             }
 
             return NotFound();
@@ -62,35 +62,36 @@ namespace ColorWheelAPI.Controllers
         /// Put method for API.  To Update
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="analogous"></param>
+        /// <param name="tetradic"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Analogous analogous)
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Tetradic tetradic)
         {
-            Analogous resultAnalogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
+            Tetradic resultTetradic = _context.Tetradic.FirstOrDefault(t => t.ID == id);
 
-            if(id != resultAnalogous.ID)
+            if (id != resultTetradic.ID)
             {
                 return BadRequest(ModelState);
             }
 
-            if(resultAnalogous == null)
+            if (resultTetradic == null)
             {
-                return RedirectToAction("Post", resultAnalogous);
+                return RedirectToAction("Post", resultTetradic);
             }
 
-            resultAnalogous.ColorOneID = analogous.ColorOneID;
-            resultAnalogous.ColorTwoID = analogous.ColorTwoID;
-            resultAnalogous.ColorThreeID = analogous.ColorThreeID;
+            resultTetradic.ColorOneID = tetradic.ColorOneID;
+            resultTetradic.ColorTwoID = tetradic.ColorTwoID;
+            resultTetradic.ColorThreeID = tetradic.ColorThreeID;
+            resultTetradic.ColorFourID = tetradic.ColorFourID;
 
-            _context.Update(resultAnalogous);
+            _context.Update(resultTetradic);
             await _context.SaveChangesAsync();
 
-            return Ok("AnalogousColors");
+            return Ok("TetradicColors");
         }
 
         /// <summary>
-        /// To Delete the Analogous.  Might not need this for API
+        /// To Delete the Tetradic.  Might not need this for API
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete]
@@ -102,7 +103,7 @@ namespace ColorWheelAPI.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await _context.DeleteAnalogous(id);
+            await _context.DeleteTetradic(id);
 
         }
         */

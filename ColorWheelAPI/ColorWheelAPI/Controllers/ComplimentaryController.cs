@@ -11,48 +11,48 @@ namespace ColorWheelAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AnalogousController : ControllerBase
+    public class ComplimentaryController : ControllerBase
     {
         private ColorWheelDbContext _context;
 
-        public AnalogousController(ColorWheelDbContext context)
+        public ComplimentaryController(ColorWheelDbContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Get method for Analogous table.  To View.
+        /// Get method for Complimentary table.  To View.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Analogous> Get()
+        public IEnumerable<Complimentary> Get()
         {
-            return _context.Analogous;
+            return _context.Complimentary;
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
-            if(analogous == null)
+            Complimentary complimentary = _context.Complimentary.FirstOrDefault(c => c.ID == id);
+            if (complimentary == null)
             {
                 return NotFound();
             }
-            return Ok(analogous);
+            return Ok(complimentary);
         }
 
         /// <summary>
         /// Post method for API.  To Create
         /// </summary>
-        /// <param name="analogous"></param>
+        /// <param name="complimentary"></param>
         /// <returns></returns>
-        public async Task<IActionResult> Post([FromBody] Analogous analogous)
+        public async Task<IActionResult> Post([FromBody] Complimentary complimentary)
         {
-            if(analogous != null)
+            if (complimentary != null)
             {
-                await _context.Analogous.AddAsync(analogous);
+                await _context.Complimentary.AddAsync(complimentary);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Get", new { analogous.ID });
+                return RedirectToAction("Get", new { complimentary.ID });
             }
 
             return NotFound();
@@ -62,35 +62,34 @@ namespace ColorWheelAPI.Controllers
         /// Put method for API.  To Update
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="analogous"></param>
+        /// <param name="complimentary"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Analogous analogous)
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Complimentary complimentary)
         {
-            Analogous resultAnalogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
+            Complimentary resultComplimentary = _context.Complimentary.FirstOrDefault(c => c.ID == id);
 
-            if(id != resultAnalogous.ID)
+            if (id != resultComplimentary.ID)
             {
                 return BadRequest(ModelState);
             }
 
-            if(resultAnalogous == null)
+            if (resultComplimentary == null)
             {
-                return RedirectToAction("Post", resultAnalogous);
+                return RedirectToAction("Post", resultComplimentary);
             }
 
-            resultAnalogous.ColorOneID = analogous.ColorOneID;
-            resultAnalogous.ColorTwoID = analogous.ColorTwoID;
-            resultAnalogous.ColorThreeID = analogous.ColorThreeID;
+            resultComplimentary.ColorOneID = complimentary.ColorOneID;
+            resultComplimentary.ColorTwoID = complimentary.ColorTwoID;
 
-            _context.Update(resultAnalogous);
+            _context.Update(resultComplimentary);
             await _context.SaveChangesAsync();
 
-            return Ok("AnalogousColors");
+            return Ok("ComplimentaryColors");
         }
 
         /// <summary>
-        /// To Delete the Analogous.  Might not need this for API
+        /// To Delete the Complimentary.  Might not need this for API
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete]
@@ -102,7 +101,7 @@ namespace ColorWheelAPI.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await _context.DeleteAnalogous(id);
+            await _context.DeleteComplimentary(id);
 
         }
         */

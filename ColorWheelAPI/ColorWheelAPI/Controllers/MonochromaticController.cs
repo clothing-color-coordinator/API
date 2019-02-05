@@ -11,48 +11,48 @@ namespace ColorWheelAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AnalogousController : ControllerBase
+    public class MonochromaticController : ControllerBase
     {
         private ColorWheelDbContext _context;
 
-        public AnalogousController(ColorWheelDbContext context)
+        public MonochromaticController(ColorWheelDbContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Get method for Analogous table.  To View.
+        /// Get method for Monochromatic table.  To View.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Analogous> Get()
+        public IEnumerable<Monochromatic> Get()
         {
-            return _context.Analogous;
+            return _context.Monochromatic;
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
-            if(analogous == null)
+            Monochromatic monochromatic = _context.Monochromatic.FirstOrDefault(a => a.ID == id);
+            if (monochromatic == null)
             {
                 return NotFound();
             }
-            return Ok(analogous);
+            return Ok(monochromatic);
         }
 
         /// <summary>
         /// Post method for API.  To Create
         /// </summary>
-        /// <param name="analogous"></param>
+        /// <param name="monochromatic"></param>
         /// <returns></returns>
-        public async Task<IActionResult> Post([FromBody] Analogous analogous)
+        public async Task<IActionResult> Post([FromBody] Monochromatic monochromatic)
         {
-            if(analogous != null)
+            if (monochromatic != null)
             {
-                await _context.Analogous.AddAsync(analogous);
+                await _context.Monochromatic.AddAsync(monochromatic);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Get", new { analogous.ID });
+                return RedirectToAction("Get", new { monochromatic.ID });
             }
 
             return NotFound();
@@ -62,35 +62,34 @@ namespace ColorWheelAPI.Controllers
         /// Put method for API.  To Update
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="analogous"></param>
+        /// <param name="monocrhomatic"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Analogous analogous)
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Monochromatic monochromatic)
         {
-            Analogous resultAnalogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
+            Monochromatic resultChromatic = _context.Monochromatic.FirstOrDefault(m => m.ID == id);
 
-            if(id != resultAnalogous.ID)
+            if (id != resultChromatic.ID)
             {
                 return BadRequest(ModelState);
             }
 
-            if(resultAnalogous == null)
+            if (resultChromatic == null)
             {
-                return RedirectToAction("Post", resultAnalogous);
+                return RedirectToAction("Post", resultChromatic);
             }
 
-            resultAnalogous.ColorOneID = analogous.ColorOneID;
-            resultAnalogous.ColorTwoID = analogous.ColorTwoID;
-            resultAnalogous.ColorThreeID = analogous.ColorThreeID;
+            resultChromatic.ColorOneID = monochromatic.ColorOneID;
+            resultChromatic.ColorTwoID = monochromatic.ColorTwoID;
 
-            _context.Update(resultAnalogous);
+            _context.Update(resultChromatic);
             await _context.SaveChangesAsync();
 
-            return Ok("AnalogousColors");
+            return Ok("MonochromaticColors");
         }
 
         /// <summary>
-        /// To Delete the Analogous.  Might not need this for API
+        /// To Delete the Monochromatic.  Might not need this for API
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete]
@@ -102,7 +101,7 @@ namespace ColorWheelAPI.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await _context.DeleteAnalogous(id);
+            await _context.DeleteMonochromatic(id);
 
         }
         */

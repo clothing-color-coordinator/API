@@ -22,15 +22,10 @@ namespace ColorWheelAPI.Controllers
         }
 
         /// <summary>
-        /// Get method for SplitComplimentary table.  To View.
+        /// This action takes in a string id, checks that the id exists, and then returns a palette if it does
         /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public IEnumerable<SplitComplimentary> Get()
-        {
-            return _context.SplitComplimentary;
-        }
-
+        /// <param name="id"></param>
+        /// <returns>A JSON object</returns>
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {

@@ -331,3 +331,4 @@ ASALocalRun/
 
 # DB connections
 appsettings.json
+appsettings.Development.json

@@ -9,102 +9,40 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColorWheelAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Get[controller]Palette")]
+    [Route("api/Check[controller]")]
     [ApiController]
     public class TriadicController : ControllerBase
     {
         private ColorWheelDbContext _context;
 
+
+        /// <summary>
+        /// Custom constructor that facilitates dependency injection.
+        /// </summary>
+        /// <param name="context"></param>
         public TriadicController(ColorWheelDbContext context)
         {
             _context = context;
         }
 
-        /// <summary>
-        /// Get method for Triadic table.  To View.
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public IEnumerable<Triadic> Get()
-        {
-            return _context.Triadic;
-        }
 
+        /// <summary>
+        /// This action takes in a string id, checks that the id exists, and then returns a palette if it does
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>A JSON object</returns>
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult Get(string id)
         {
-            Triadic triadic = _context.Triadic.FirstOrDefault(t => t.ID == id);
+            Triadic triadic = _context.Triadic.FirstOrDefault(a => a.Color.ColorName == id);
+
             if (triadic == null)
             {
                 return NotFound();
             }
+
             return Ok(triadic);
         }
-
-        /// <summary>
-        /// Post method for API.  To Create
-        /// </summary>
-        /// <param name="triadic"></param>
-        /// <returns></returns>
-        public async Task<IActionResult> Post([FromBody] Triadic triadic)
-        {
-            if (triadic != null)
-            {
-                await _context.Triadic.AddAsync(triadic);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Get", new { triadic.ID });
-            }
-
-            return NotFound();
-        }
-
-        /// <summary>
-        /// Put method for API.  To Update
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="triadic"></param>
-        /// <returns></returns>
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Triadic triadic)
-        {
-            Triadic resultTriadic = _context.Triadic.FirstOrDefault(t => t.ID == id);
-
-            if (id != resultTriadic.ID)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (resultTriadic == null)
-            {
-                return RedirectToAction("Post", resultTriadic);
-            }
-
-            resultTriadic.ColorOneID = triadic.ColorOneID;
-            resultTriadic.ColorTwoID = triadic.ColorTwoID;
-            resultTriadic.ColorThreeID = triadic.ColorThreeID;
-
-            _context.Update(resultTriadic);
-            await _context.SaveChangesAsync();
-
-            return Ok("TriadicColors");
-        }
-
-        /// <summary>
-        /// To Delete the Triadic.  Might not need this for API
-        /// </summary>
-        /// <param name="id"></param>
-        [HttpDelete]
-        public void Delete(int id)
-        {
-
-        }
-        /*
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _context.DeleteTriadic(id);
-
-        }
-        */
     }
 }

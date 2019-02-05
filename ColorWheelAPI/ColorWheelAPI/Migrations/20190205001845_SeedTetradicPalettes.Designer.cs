@@ -3,14 +3,16 @@ using ColorWheelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ColorWheelAPI.Migrations
 {
     [DbContext(typeof(ColorWheelDbContext))]
-    partial class ColorWheelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190205001845_SeedTetradicPalettes")]
+    partial class SeedTetradicPalettes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -464,37 +466,7 @@ namespace ColorWheelAPI.Migrations
 
                     b.HasIndex("ID");
 
-                    b.ToTable("TriadicPalettes");
-
-                    b.HasData(
-                        new
-                        {
-                            ColorOneID = 1,
-                            ColorTwoID = 5,
-                            ColorThreeID = 9,
-                            ID = 1
-                        },
-                        new
-                        {
-                            ColorOneID = 2,
-                            ColorTwoID = 6,
-                            ColorThreeID = 10,
-                            ID = 2
-                        },
-                        new
-                        {
-                            ColorOneID = 3,
-                            ColorTwoID = 7,
-                            ColorThreeID = 11,
-                            ID = 3
-                        },
-                        new
-                        {
-                            ColorOneID = 4,
-                            ColorTwoID = 8,
-                            ColorThreeID = 12,
-                            ID = 4
-                        });
+                    b.ToTable("Triadic");
                 });
 
             modelBuilder.Entity("ColorWheelAPI.Models.Analogous", b =>

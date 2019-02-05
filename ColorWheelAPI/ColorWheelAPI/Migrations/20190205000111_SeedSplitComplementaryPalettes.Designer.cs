@@ -3,14 +3,16 @@ using ColorWheelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ColorWheelAPI.Migrations
 {
     [DbContext(typeof(ColorWheelDbContext))]
-    partial class ColorWheelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190205000111_SeedSplitComplementaryPalettes")]
+    partial class SeedSplitComplementaryPalettes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -397,57 +399,7 @@ namespace ColorWheelAPI.Migrations
 
                     b.HasIndex("ID");
 
-                    b.ToTable("TetradicPalettes");
-
-                    b.HasData(
-                        new
-                        {
-                            ColorOneID = 1,
-                            ColorTwoID = 7,
-                            ColorThreeID = 3,
-                            ColorFourID = 9,
-                            ID = 1
-                        },
-                        new
-                        {
-                            ColorOneID = 2,
-                            ColorTwoID = 8,
-                            ColorThreeID = 4,
-                            ColorFourID = 10,
-                            ID = 2
-                        },
-                        new
-                        {
-                            ColorOneID = 3,
-                            ColorTwoID = 9,
-                            ColorThreeID = 5,
-                            ColorFourID = 11,
-                            ID = 3
-                        },
-                        new
-                        {
-                            ColorOneID = 4,
-                            ColorTwoID = 10,
-                            ColorThreeID = 6,
-                            ColorFourID = 12,
-                            ID = 4
-                        },
-                        new
-                        {
-                            ColorOneID = 5,
-                            ColorTwoID = 11,
-                            ColorThreeID = 7,
-                            ColorFourID = 1,
-                            ID = 5
-                        },
-                        new
-                        {
-                            ColorOneID = 6,
-                            ColorTwoID = 12,
-                            ColorThreeID = 8,
-                            ColorFourID = 2,
-                            ID = 6
-                        });
+                    b.ToTable("Tetradic");
                 });
 
             modelBuilder.Entity("ColorWheelAPI.Models.Triadic", b =>
@@ -464,37 +416,7 @@ namespace ColorWheelAPI.Migrations
 
                     b.HasIndex("ID");
 
-                    b.ToTable("TriadicPalettes");
-
-                    b.HasData(
-                        new
-                        {
-                            ColorOneID = 1,
-                            ColorTwoID = 5,
-                            ColorThreeID = 9,
-                            ID = 1
-                        },
-                        new
-                        {
-                            ColorOneID = 2,
-                            ColorTwoID = 6,
-                            ColorThreeID = 10,
-                            ID = 2
-                        },
-                        new
-                        {
-                            ColorOneID = 3,
-                            ColorTwoID = 7,
-                            ColorThreeID = 11,
-                            ID = 3
-                        },
-                        new
-                        {
-                            ColorOneID = 4,
-                            ColorTwoID = 8,
-                            ColorThreeID = 12,
-                            ID = 4
-                        });
+                    b.ToTable("Triadic");
                 });
 
             modelBuilder.Entity("ColorWheelAPI.Models.Analogous", b =>

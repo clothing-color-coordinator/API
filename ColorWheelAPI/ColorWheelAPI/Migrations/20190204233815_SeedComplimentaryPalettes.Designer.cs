@@ -3,14 +3,16 @@ using ColorWheelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ColorWheelAPI.Migrations
 {
     [DbContext(typeof(ColorWheelDbContext))]
-    partial class ColorWheelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190204233815_SeedComplimentaryPalettes")]
+    partial class SeedComplimentaryPalettes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -263,240 +265,6 @@ namespace ColorWheelAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ColorWheelAPI.Models.Monochromatic", b =>
-                {
-                    b.Property<int>("ColorOneID");
-
-                    b.Property<int>("ColorTwoID");
-
-                    b.Property<int>("ID");
-
-                    b.HasKey("ColorOneID", "ColorTwoID");
-
-                    b.HasIndex("ID");
-
-                    b.ToTable("Monochromatic");
-                });
-
-            modelBuilder.Entity("ColorWheelAPI.Models.SplitComplimentary", b =>
-                {
-                    b.Property<int>("ColorOneID");
-
-                    b.Property<int>("ColorTwoID");
-
-                    b.Property<int>("ColorThreeID");
-
-                    b.Property<int>("ID");
-
-                    b.HasKey("ColorOneID", "ColorTwoID", "ColorThreeID");
-
-                    b.HasIndex("ID");
-
-                    b.ToTable("SplitComplimentaryPalettes");
-
-                    b.HasData(
-                        new
-                        {
-                            ColorOneID = 1,
-                            ColorTwoID = 6,
-                            ColorThreeID = 8,
-                            ID = 1
-                        },
-                        new
-                        {
-                            ColorOneID = 2,
-                            ColorTwoID = 7,
-                            ColorThreeID = 9,
-                            ID = 2
-                        },
-                        new
-                        {
-                            ColorOneID = 3,
-                            ColorTwoID = 8,
-                            ColorThreeID = 10,
-                            ID = 3
-                        },
-                        new
-                        {
-                            ColorOneID = 4,
-                            ColorTwoID = 9,
-                            ColorThreeID = 11,
-                            ID = 4
-                        },
-                        new
-                        {
-                            ColorOneID = 5,
-                            ColorTwoID = 10,
-                            ColorThreeID = 12,
-                            ID = 5
-                        },
-                        new
-                        {
-                            ColorOneID = 6,
-                            ColorTwoID = 11,
-                            ColorThreeID = 1,
-                            ID = 6
-                        },
-                        new
-                        {
-                            ColorOneID = 7,
-                            ColorTwoID = 12,
-                            ColorThreeID = 2,
-                            ID = 7
-                        },
-                        new
-                        {
-                            ColorOneID = 8,
-                            ColorTwoID = 1,
-                            ColorThreeID = 3,
-                            ID = 8
-                        },
-                        new
-                        {
-                            ColorOneID = 9,
-                            ColorTwoID = 2,
-                            ColorThreeID = 4,
-                            ID = 9
-                        },
-                        new
-                        {
-                            ColorOneID = 10,
-                            ColorTwoID = 3,
-                            ColorThreeID = 5,
-                            ID = 10
-                        },
-                        new
-                        {
-                            ColorOneID = 11,
-                            ColorTwoID = 4,
-                            ColorThreeID = 6,
-                            ID = 11
-                        },
-                        new
-                        {
-                            ColorOneID = 12,
-                            ColorTwoID = 5,
-                            ColorThreeID = 7,
-                            ID = 12
-                        });
-                });
-
-            modelBuilder.Entity("ColorWheelAPI.Models.Tetradic", b =>
-                {
-                    b.Property<int>("ColorOneID");
-
-                    b.Property<int>("ColorTwoID");
-
-                    b.Property<int>("ColorThreeID");
-
-                    b.Property<int>("ColorFourID");
-
-                    b.Property<int>("ID");
-
-                    b.HasKey("ColorOneID", "ColorTwoID", "ColorThreeID", "ColorFourID");
-
-                    b.HasIndex("ID");
-
-                    b.ToTable("TetradicPalettes");
-
-                    b.HasData(
-                        new
-                        {
-                            ColorOneID = 1,
-                            ColorTwoID = 7,
-                            ColorThreeID = 3,
-                            ColorFourID = 9,
-                            ID = 1
-                        },
-                        new
-                        {
-                            ColorOneID = 2,
-                            ColorTwoID = 8,
-                            ColorThreeID = 4,
-                            ColorFourID = 10,
-                            ID = 2
-                        },
-                        new
-                        {
-                            ColorOneID = 3,
-                            ColorTwoID = 9,
-                            ColorThreeID = 5,
-                            ColorFourID = 11,
-                            ID = 3
-                        },
-                        new
-                        {
-                            ColorOneID = 4,
-                            ColorTwoID = 10,
-                            ColorThreeID = 6,
-                            ColorFourID = 12,
-                            ID = 4
-                        },
-                        new
-                        {
-                            ColorOneID = 5,
-                            ColorTwoID = 11,
-                            ColorThreeID = 7,
-                            ColorFourID = 1,
-                            ID = 5
-                        },
-                        new
-                        {
-                            ColorOneID = 6,
-                            ColorTwoID = 12,
-                            ColorThreeID = 8,
-                            ColorFourID = 2,
-                            ID = 6
-                        });
-                });
-
-            modelBuilder.Entity("ColorWheelAPI.Models.Triadic", b =>
-                {
-                    b.Property<int>("ColorOneID");
-
-                    b.Property<int>("ColorTwoID");
-
-                    b.Property<int>("ColorThreeID");
-
-                    b.Property<int>("ID");
-
-                    b.HasKey("ColorOneID", "ColorTwoID", "ColorThreeID");
-
-                    b.HasIndex("ID");
-
-                    b.ToTable("TriadicPalettes");
-
-                    b.HasData(
-                        new
-                        {
-                            ColorOneID = 1,
-                            ColorTwoID = 5,
-                            ColorThreeID = 9,
-                            ID = 1
-                        },
-                        new
-                        {
-                            ColorOneID = 2,
-                            ColorTwoID = 6,
-                            ColorThreeID = 10,
-                            ID = 2
-                        },
-                        new
-                        {
-                            ColorOneID = 3,
-                            ColorTwoID = 7,
-                            ColorThreeID = 11,
-                            ID = 3
-                        },
-                        new
-                        {
-                            ColorOneID = 4,
-                            ColorTwoID = 8,
-                            ColorThreeID = 12,
-                            ID = 4
-                        });
-                });
-
             modelBuilder.Entity("ColorWheelAPI.Models.Analogous", b =>
                 {
                     b.HasOne("ColorWheelAPI.Models.Color", "Color")
@@ -506,38 +274,6 @@ namespace ColorWheelAPI.Migrations
                 });
 
             modelBuilder.Entity("ColorWheelAPI.Models.Complimentary", b =>
-                {
-                    b.HasOne("ColorWheelAPI.Models.Color", "Color")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ColorWheelAPI.Models.Monochromatic", b =>
-                {
-                    b.HasOne("ColorWheelAPI.Models.Color", "Color")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ColorWheelAPI.Models.SplitComplimentary", b =>
-                {
-                    b.HasOne("ColorWheelAPI.Models.Color", "Color")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ColorWheelAPI.Models.Tetradic", b =>
-                {
-                    b.HasOne("ColorWheelAPI.Models.Color", "Color")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ColorWheelAPI.Models.Triadic", b =>
                 {
                     b.HasOne("ColorWheelAPI.Models.Color", "Color")
                         .WithMany()

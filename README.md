@@ -24,9 +24,34 @@ The API matches a color that is requested to this API in a JSON file.
 * POST
 * DELETE
 
+## EndPoints
+- **api/Get(PaletteName)Palette/(Color)**
+- Format needed for the request should be Capital first letter and the rest lower-case.  ex. Green
+ex. Triadic
+- For hybrid color, a dash is required between the two colors. ex Blue-Green
+- example:  
+```
+{
+    "id": 2,
+    "colorOneID": 2,
+    "colorTwoID": 6,
+    "colorThreeID": 10,
+    "color": {
+        "id": 2,
+        "colorName": "Yellow-Green",
+        "hexCode": "#B2D732"
+    "color": {
+        "id": 6,
+        ...............       
+    }
+}
+```
+
+
 #### Version:
 ```
 Version 1.0  February 01, 2019
+Version 1.4 February 05, 2019
 ```
 
 ## Schema Table

@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColorWheelAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Get[controller]Palette")]
+    [Route("api/Check[controller]")]
     [ApiController]
     public class TriadicController : ControllerBase
     {

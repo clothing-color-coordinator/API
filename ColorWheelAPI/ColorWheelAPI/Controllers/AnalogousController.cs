@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColorWheelAPI.Controllers
 {
-    [Route("api/Get[controller]Palettes")]
+    [Route("api/Get[controller]Palette")]
     [Route("api/Check[controller]")]
     [ApiController]
     public class AnalogousController : ControllerBase
@@ -21,11 +21,15 @@ namespace ColorWheelAPI.Controllers
             _context = context;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult Get(string id)
         {
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ID == id);
+            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.Color.ColorName == id);
             if(analogous == null)
             {
                 return NotFound();

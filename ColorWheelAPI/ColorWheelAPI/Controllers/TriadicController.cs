@@ -22,13 +22,21 @@ namespace ColorWheelAPI.Controllers
         }
 
         /// <summary>
-        /// Get method for Triadic table.  To View.
+        /// This action takes in a string id, checks that the id exists, and then returns a palette if it does
         /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public IEnumerable<Triadic> Get()
+        /// <param name="id"></param>
+        /// <returns>A JSON object</returns>
+        [HttpGet("{id}")]
+        public IActionResult Get(string id)
         {
-            return _context.Triadic;
+            Triadic triadic = _context.Triadic.FirstOrDefault(a => a.Color.ColorName == id);
+
+            if (triadic == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(triadic);
         }
 
         [HttpGet("{id}")]

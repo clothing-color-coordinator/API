@@ -20,7 +20,7 @@ namespace ColorWheelAPI.Data
 
 
         /// <summary>
-        /// This method allows us to seed data in the database when the table is added
+        /// This method allows seed data to be inserted into database when a migration is run
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -108,5 +108,6 @@ namespace ColorWheelAPI.Data
         public DbSet<Complimentary> ComplimentaryPalettes { get; set; }
         public DbSet<SplitComplimentary> SplitComplimentaryPalettes { get; set; }
         public DbSet<Tetradic> TetradicPalettes { get; set; }
+        public DbSet<Triadic> TriadicPalettes { get; set; }
     }
 }

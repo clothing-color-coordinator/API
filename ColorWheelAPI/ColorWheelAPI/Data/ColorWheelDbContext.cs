@@ -10,7 +10,7 @@ namespace ColorWheelAPI.Data
     public class ColorWheelDbContext : DbContext
     {
         /// <summary>
-        /// Database is being constructed with the color information to go into the database tables.
+        /// Database is constructed with the color information to go into the database tables.
         /// </summary>
         /// <param name="options"></param>
         public ColorWheelDbContext(DbContextOptions<ColorWheelDbContext> options) : base(options)

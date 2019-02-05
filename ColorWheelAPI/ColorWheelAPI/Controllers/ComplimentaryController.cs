@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColorWheelAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Get[controller]Palette")]
+    [Route("api/Check[controller]")]
     [ApiController]
     public class ComplimentaryController : ControllerBase
     {
@@ -21,13 +22,21 @@ namespace ColorWheelAPI.Controllers
         }
 
         /// <summary>
-        /// Get method for Complimentary table.  To View.
+        /// This action takes in a string id, checks that the id exists, and then returns a palette if it does
         /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public IEnumerable<Complimentary> Get()
+        /// <param name="id"></param>
+        /// <returns>A JSON object</returns>
+        [HttpGet("{id}")]
+        public IActionResult Get(string id)
         {
-            return _context.Complimentary;
+            Complimentary complimentary = _context.Complimentary.FirstOrDefault(a => a.Color.ColorName == id);
+
+            if (complimentary == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(complimentary);
         }
 
         [HttpGet("{id}")]

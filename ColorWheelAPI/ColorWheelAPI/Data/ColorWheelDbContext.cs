@@ -22,6 +22,7 @@ namespace ColorWheelAPI.Data
         /// <summary>
         /// This method allows seed data to be inserted into database when a migration is run
         /// </summary>
+        /// 
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

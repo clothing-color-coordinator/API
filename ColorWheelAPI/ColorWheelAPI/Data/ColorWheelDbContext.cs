@@ -113,7 +113,15 @@ namespace ColorWheelAPI.Data
                     new Triadic { ID = 1, ColorOneID = 1, ColorTwoID = 5, ColorThreeID = 9 },
                     new Triadic { ID = 2, ColorOneID = 2, ColorTwoID = 6, ColorThreeID = 10 },
                     new Triadic { ID = 3, ColorOneID = 3, ColorTwoID = 7, ColorThreeID = 11 },
-                    new Triadic { ID = 4, ColorOneID = 4, ColorTwoID = 8, ColorThreeID = 12 });
+                    new Triadic { ID = 4, ColorOneID = 4, ColorTwoID = 8, ColorThreeID = 12 },
+                    new Triadic { ID = 5, ColorOneID = 5, ColorTwoID = 9, ColorThreeID = 1 },
+                    new Triadic { ID = 6, ColorOneID = 6, ColorTwoID = 10, ColorThreeID = 2 },
+                    new Triadic { ID = 7, ColorOneID = 7, ColorTwoID = 11, ColorThreeID = 3 },
+                    new Triadic { ID = 8, ColorOneID = 8, ColorTwoID = 12, ColorThreeID = 4 },
+                    new Triadic { ID = 9, ColorOneID = 9, ColorTwoID = 1, ColorThreeID = 5 },
+                    new Triadic { ID = 10, ColorOneID = 10, ColorTwoID = 2, ColorThreeID = 6 },
+                    new Triadic { ID = 11, ColorOneID = 11, ColorTwoID = 3, ColorThreeID = 7 },
+                    new Triadic { ID = 12, ColorOneID = 12, ColorTwoID = 4, ColorThreeID = 8 });
         }
 
         public DbSet<Color> Colors { get; set; } 

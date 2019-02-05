@@ -18,5 +18,10 @@ namespace ColorWheelAPI.Data
  
         }
         public DbSet<Analogous> Analogous { get; set; }
+        public DbSet<Complimentary> Complimentary { get; set; }
+        public DbSet<Monochromatic> Monochromatic { get; set; }
+        public DbSet<SplitComplimentary> SplitComplimentary { get; set; }
+        public DbSet<Tetradic> Tetradic { get; set; }
+        public DbSet<Triadic> Triadic { get; set; }
     }
 }

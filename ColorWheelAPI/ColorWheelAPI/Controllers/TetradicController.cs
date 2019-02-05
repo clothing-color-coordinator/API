@@ -9,8 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColorWheelAPI.Controllers
 {
-    [Route("api/Get[controller]Palette")]
-    [Route("api/Check[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TetradicController : ControllerBase
     {
@@ -32,9 +31,9 @@ namespace ColorWheelAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(string id)
+        public IActionResult Get(int id)
         {
-            Tetradic tetradic = _context.Tetradic.FirstOrDefault(t => t.Color.ColorName == id);
+            Tetradic tetradic = _context.Tetradic.FirstOrDefault(t => t.ID == id);
             if (tetradic == null)
             {
                 return NotFound();

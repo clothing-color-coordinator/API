@@ -2,7 +2,6 @@ using System;
 using ColorWheelAPI.Models;
 using ColorWheelAPI.Data;
 using ColorWheelAPI.Controllers;
-using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace ColorWheelAPIxUnitTDD

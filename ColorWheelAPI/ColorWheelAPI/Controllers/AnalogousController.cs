@@ -34,15 +34,23 @@ namespace ColorWheelAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.Color.ColorName == id);
+            Color color = _context.Colors.FirstOrDefault(c => c.ColorName == id);
+            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ColorOneID == color.ID || a.ColorTwoID == color.ID || a.ColorThreeID == color.ID);
 
-            if (analogous == null)
+            if (color == null || analogous == null)
             {
                 return NotFound();
             }
 
-            return Ok(analogous);
+            Color color1 = _context.Colors.FirstOrDefault(c => c.ID == analogous.ColorOneID);
+            Color color2 = _context.Colors.FirstOrDefault(c => c.ID == analogous.ColorTwoID);
+            Color color3 = _context.Colors.FirstOrDefault(c => c.ID == analogous.ColorThreeID);
+
+            List<Color> palette = new List<Color> { color1, color2, color3 };
+
+            return Ok(palette);
         }
+
 
 
         //[HttpGet("{id},{id},{id}")]

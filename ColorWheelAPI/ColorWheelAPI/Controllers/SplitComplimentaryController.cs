@@ -35,12 +35,21 @@ namespace ColorWheelAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            SplitComplimentary splitComplimentary = _context.SplitComplimentary.FirstOrDefault(s => s.Color.ColorName == id);
-            if (splitComplimentary == null)
+            Color color = _context.Colors.FirstOrDefault(c => c.ColorName == id);
+            SplitComplimentary splitComplimentary = _context.SplitComplimentary.FirstOrDefault(a => a.ColorOneID == color.ID || a.ColorTwoID == color.ID || a.ColorThreeID == color.ID);
+
+            if (color == null || splitComplimentary == null)
             {
                 return NotFound();
             }
-            return Ok(splitComplimentary);
+
+            Color color1 = _context.Colors.FirstOrDefault(c => c.ID == splitComplimentary.ColorOneID);
+            Color color2 = _context.Colors.FirstOrDefault(c => c.ID == splitComplimentary.ColorTwoID);
+            Color color3 = _context.Colors.FirstOrDefault(c => c.ID == splitComplimentary.ColorThreeID);
+
+            List<Color> palette = new List<Color> { color1, color2, color3 };
+
+            return Ok(palette);
         }
     }
 }

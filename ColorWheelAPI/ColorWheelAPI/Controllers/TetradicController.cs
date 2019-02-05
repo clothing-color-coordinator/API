@@ -40,6 +40,14 @@ namespace ColorWheelAPI.Controllers
             {
                 return NotFound();
             }
+
+            Color color1 = _context.Colors.FirstOrDefault(t => t.ID == tetradic.ColorOneID);
+            Color color2 = _context.Colors.FirstOrDefault(t => t.ID == tetradic.ColorTwoID);
+            Color color3 = _context.Colors.FirstOrDefault(t => t.ID == tetradic.ColorThreeID);
+            Color color4 = _context.Colors.FirstOrDefault(t => t.ID == tetradic.ColorFourID);
+
+            List<Color> palette = new List<Color> { color1, color2, color3, color4 };
+
             return Ok(tetradic);
         }
     }

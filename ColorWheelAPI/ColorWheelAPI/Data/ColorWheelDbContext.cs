@@ -70,7 +70,13 @@ namespace ColorWheelAPI.Data
                     new Complimentary { ID = 3, ColorOneID = 3, ColorTwoID = 9 },
                     new Complimentary { ID = 4, ColorOneID = 4, ColorTwoID = 10 },
                     new Complimentary { ID = 5, ColorOneID = 5, ColorTwoID = 11 },
-                    new Complimentary { ID = 6, ColorOneID = 6, ColorTwoID = 12 });
+                    new Complimentary { ID = 6, ColorOneID = 6, ColorTwoID = 12 },
+                    new Complimentary { ID = 7, ColorOneID = 7, ColorTwoID = 1 },
+                    new Complimentary { ID = 8, ColorOneID = 8, ColorTwoID = 2 },
+                    new Complimentary { ID = 9, ColorOneID = 9, ColorTwoID = 3 },
+                    new Complimentary { ID = 10, ColorOneID = 10, ColorTwoID = 4 },
+                    new Complimentary { ID = 11, ColorOneID = 11, ColorTwoID = 5 },
+                    new Complimentary { ID = 12, ColorOneID = 12, ColorTwoID = 6 });
 
             modelBuilder.Entity<SplitComplimentary>()
                 .HasData(

@@ -30,7 +30,11 @@ namespace ColorWheelAPI
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<ColorWheelDbContext>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+            /*
+            services.AddDbContext<ColorWheelDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

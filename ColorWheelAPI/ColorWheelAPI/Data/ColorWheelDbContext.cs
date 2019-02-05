@@ -88,18 +88,12 @@ namespace ColorWheelAPI.Data
 
             modelBuilder.Entity<Tetradic>()
                 .HasData(
-                    new Tetradic { ID = 1, ColorOneID = 1, ColorTwoID = 6, ColorThreeID = 8 },
-                    new Tetradic { ID = 2, ColorOneID = 2, ColorTwoID = 7, ColorThreeID = 9 },
-                    new Tetradic { ID = 3, ColorOneID = 3, ColorTwoID = 8, ColorThreeID = 10 },
-                    new Tetradic { ID = 4, ColorOneID = 4, ColorTwoID = 9, ColorThreeID = 11 },
-                    new Tetradic { ID = 5, ColorOneID = 5, ColorTwoID = 10, ColorThreeID = 12 },
-                    new Tetradic { ID = 6, ColorOneID = 6, ColorTwoID = 11, ColorThreeID = 1 },
-                    new Tetradic { ID = 7, ColorOneID = 7, ColorTwoID = 12, ColorThreeID = 2 },
-                    new Tetradic { ID = 8, ColorOneID = 8, ColorTwoID = 1, ColorThreeID = 3 },
-                    new Tetradic { ID = 9, ColorOneID = 9, ColorTwoID = 2, ColorThreeID = 4 },
-                    new Tetradic { ID = 10, ColorOneID = 10, ColorTwoID = 3, ColorThreeID = 5 },
-                    new Tetradic { ID = 11, ColorOneID = 11, ColorTwoID = 4, ColorThreeID = 6 },
-                    new Tetradic { ID = 12, ColorOneID = 12, ColorTwoID = 5, ColorThreeID = 7 });
+                    new Tetradic { ID = 1, ColorOneID = 1, ColorTwoID = 7, ColorThreeID = 3, ColorFourID = 9 },
+                    new Tetradic { ID = 2, ColorOneID = 2, ColorTwoID = 8, ColorThreeID = 4, ColorFourID = 10 },
+                    new Tetradic { ID = 3, ColorOneID = 3, ColorTwoID = 9, ColorThreeID = 5, ColorFourID = 11 },
+                    new Tetradic { ID = 4, ColorOneID = 4, ColorTwoID = 10, ColorThreeID = 6, ColorFourID = 12 },
+                    new Tetradic { ID = 5, ColorOneID = 5, ColorTwoID = 11, ColorThreeID = 7, ColorFourID = 1 },
+                    new Tetradic { ID = 6, ColorOneID = 6, ColorTwoID = 12, ColorThreeID = 8, ColorFourID = 2 });
 
         }
 

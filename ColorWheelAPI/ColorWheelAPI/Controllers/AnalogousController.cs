@@ -21,15 +21,6 @@ namespace ColorWheelAPI.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Get method for Analogous table.  To View.
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public IEnumerable<Analogous> Get()
-        {
-            return _context.Analogous;
-        }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)

@@ -42,6 +42,12 @@ namespace ColorWheelAPI.Controllers
                 return NotFound();
             }
 
+            Color color1 = _context.Colors.FirstOrDefault(t => t.ID == triadic.ColorOneID);
+            Color color2 = _context.Colors.FirstOrDefault(t => t.ID == triadic.ColorTwoID);
+            Color color3 = _context.Colors.FirstOrDefault(t => t.ID == triadic.ColorThreeID);
+
+            List<Color> palette = new List<Color> { color1, color2, color3};
+
             return Ok(triadic);
         }
     }

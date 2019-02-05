@@ -35,14 +35,20 @@ namespace ColorWheelAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            Complimentary complimentary = _context.Complimentary.FirstOrDefault(a => a.Color.ColorName == id);
+            Color color = _context.Colors.FirstOrDefault(c => c.ColorName == id);
+            Complimentary complimentary = _context.Complimentary.FirstOrDefault(a => a.ColorOneID == color.ID || a.ColorTwoID == color.ID);
 
-            if (complimentary == null)
+            if (color == null || complimentary == null)
             {
                 return NotFound();
             }
 
-            return Ok(complimentary);
+            Color color1 = _context.Colors.FirstOrDefault(c => c.ID == complimentary.ColorOneID);
+            Color color2 = _context.Colors.FirstOrDefault(c => c.ID == complimentary.ColorTwoID);
+
+            List<Color> palette = new List<Color> { color1, color2 };
+
+            return Ok(palette);
         }
     }
 }

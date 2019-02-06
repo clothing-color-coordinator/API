@@ -1,10 +1,21 @@
 ![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar1.jpg "Colors")
 
 # the color wheel api
-
 > **the** api for all of your color palette needs!
 
 ![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar2.jpg "Colors")
+
+## table of contents
+* [purpose](#purpose)
+* [summary](#summary)
+* [endpoints](#endpoints)
+* [methods](#methods)
+* [schema](#schema)
+* [versions](#versions)
+* [authors](#authors)
+* [license](#license)
+
+
 
 ## purpose:
 ```
@@ -13,20 +24,14 @@ A color is requested to the API.
 The API matches a color that is requested to this API in a JSON file.
 ```
 
-## Summary:
+## summary:
 - The API will have several tables with Primary and Foreign keys matches with the tables
 - A request sent out to the table first checks the color table if color exsist.
 - If not null, the color with follow one of six paths made by the front end point.
 - The matching table is then access and the data containing the matching color is returned to the front-end point.
 - Future updates may be made to this API.
 
-## API Functions (JSON format)
-* GET
-* PUT
-* POST
-* DELETE
-
-## EndPoints
+## endpoints
 - **api/Get(PaletteName)Palette/(Color)**
 - Format needed for the request should be Capital first letter and the rest lower-case.  ex. Green
 ex. Triadic
@@ -48,19 +53,24 @@ ex. Triadic
     }
 }
 ```
+## methods
+* GET
+* PUT
+* POST
+* DELETE
 
 
-#### Version:
+## schema
+![](assets/MidtermTables.PNG?raw=true)
+
+## versions:
 ```
 Version 1.0  February 01, 2019
 Version 1.4 February 05, 2019
 ```
 
-## Schema Table
-![](assets/MidtermTables.PNG?raw=true)
 
-## author
-
+## authors
 * **Carlos Castillo** - *Initial work* - [castillocarlosr](https://github.com/castillocarlosr])
 * **Charles Clemens** - *Initial work* - [CClemensJr](https://github.com/CClemensJr)
 

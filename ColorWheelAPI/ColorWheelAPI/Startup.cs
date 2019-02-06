@@ -54,6 +54,11 @@ namespace ColorWheelAPI
                 app.UseHsts();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "The Color Wheel API V1");
+            });
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }

@@ -3,14 +3,16 @@ using ColorWheelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ColorWheelAPI.Migrations
 {
     [DbContext(typeof(ColorWheelDbContext))]
-    partial class ColorWheelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190206183959_first20190206")]
+    partial class first20190206
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,7 +212,7 @@ namespace ColorWheelAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ColorWheelAPI.Models.Complementary", b =>
+            modelBuilder.Entity("ColorWheelAPI.Models.Complimentary", b =>
                 {
                     b.Property<int>("ColorOneID");
 
@@ -222,7 +224,7 @@ namespace ColorWheelAPI.Migrations
 
                     b.HasIndex("ID");
 
-                    b.ToTable("Complementary");
+                    b.ToTable("Complimentary");
 
                     b.HasData(
                         new
@@ -314,7 +316,7 @@ namespace ColorWheelAPI.Migrations
                     b.ToTable("Monochromatic");
                 });
 
-            modelBuilder.Entity("ColorWheelAPI.Models.SplitComplementary", b =>
+            modelBuilder.Entity("ColorWheelAPI.Models.SplitComplimentary", b =>
                 {
                     b.Property<int>("ColorOneID");
 
@@ -328,7 +330,7 @@ namespace ColorWheelAPI.Migrations
 
                     b.HasIndex("ID");
 
-                    b.ToTable("SplitComplementary");
+                    b.ToTable("SplitComplimentary");
 
                     b.HasData(
                         new
@@ -645,7 +647,7 @@ namespace ColorWheelAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ColorWheelAPI.Models.Complementary", b =>
+            modelBuilder.Entity("ColorWheelAPI.Models.Complimentary", b =>
                 {
                     b.HasOne("ColorWheelAPI.Models.Color", "Color")
                         .WithMany()
@@ -661,7 +663,7 @@ namespace ColorWheelAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ColorWheelAPI.Models.SplitComplementary", b =>
+            modelBuilder.Entity("ColorWheelAPI.Models.SplitComplimentary", b =>
                 {
                     b.HasOne("ColorWheelAPI.Models.Color", "Color")
                         .WithMany()

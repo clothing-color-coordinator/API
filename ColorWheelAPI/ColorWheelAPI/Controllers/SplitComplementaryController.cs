@@ -12,7 +12,7 @@ namespace ColorWheelAPI.Controllers
     [Route("api/Get[controller]Palette")]
     [Route("api/Check[controller]")]
     [ApiController]
-    public class SplitComplimentaryController : ControllerBase
+    public class SplitComplementaryController : ControllerBase
     {
         private ColorWheelDbContext _context;
 
@@ -21,7 +21,7 @@ namespace ColorWheelAPI.Controllers
         /// Custom constructor that facilitates dependency injection.
         /// </summary>
         /// <param name="context"></param>
-        public SplitComplimentaryController(ColorWheelDbContext context)
+        public SplitComplementaryController(ColorWheelDbContext context)
         {
             _context = context;
         }
@@ -36,7 +36,7 @@ namespace ColorWheelAPI.Controllers
         public IActionResult Get(string id)
         {
             Color color = _context.Colors.FirstOrDefault(c => c.ColorName == id);
-            SplitComplimentary splitComplimentary = _context.SplitComplimentary.FirstOrDefault(a => a.ColorOneID == color.ID || a.ColorTwoID == color.ID || a.ColorThreeID == color.ID);
+            SplitComplementary splitComplimentary = _context.SplitComplementary.FirstOrDefault(a => a.ColorOneID == color.ID || a.ColorTwoID == color.ID || a.ColorThreeID == color.ID);
 
             if (color == null || splitComplimentary == null)
             {

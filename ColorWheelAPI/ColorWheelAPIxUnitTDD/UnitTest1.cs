@@ -3,6 +3,7 @@ using ColorWheelAPI.Models;
 using ColorWheelAPI.Data;
 using ColorWheelAPI.Controllers;
 using Xunit;
+using Microsoft.EntityFrameworkCore;
 
 namespace ColorWheelAPIxUnitTDD
 {
@@ -33,7 +34,7 @@ namespace ColorWheelAPIxUnitTDD
             Assert.Equal("fff00", testColor.HexCode);
         }
 
-        /*
+        
         [Fact]
         public async void CrudColorsInDb()
         {
@@ -52,12 +53,12 @@ namespace ColorWheelAPIxUnitTDD
                 context.SaveChanges();
 
                 //Act (READ)
-                var colorNew = await context.Color.FirstOrDefaultAsync(c => c.ColorName == color.ColorName && c.HexCode == color.HexCode);
+                var colorNew = await context.Colors.FirstOrDefaultAsync(c => c.ColorName == color.ColorName && c.HexCode == color.HexCode);
                 //Assert
                 Assert.Equal("Blue", colorNew.ColorName);
                 Assert.Equal("#0000ff", colorNew.HexCode);
 
-                //UPDATE
+                /*UPDATE
                 colorNew.colorName = "Brown";
                 colorNew.HexCode = "#654321";
                 context.Update(colorNew);
@@ -66,13 +67,16 @@ namespace ColorWheelAPIxUnitTDD
                 Assert.Equal("Brown", updateColor.ColorName);
                 Assert.Equal("#654321", updateColor.HexCode);
 
-                //DELETE
-                context.Color.Remove(updateColor);
+                DELETE
+                context.Colors.Remove(updateColor);
                 context.SaveChanges();
-                var deleteColor = await context.Color.FirstOrDefaultAsync(c => c.ColorName == color.ColorName && c.HexCode == color.HexCode);
+                var deleteColor = await context.Colors.FirstOrDefaultAsync(c => c.ColorName == color.ColorName && c.HexCode == color.HexCode);
                 Assert.True(deleteColor == null);
+                */
             }
         }
-        */
+
+        
+
     }
 }

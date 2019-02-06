@@ -35,8 +35,9 @@ namespace ColorWheelAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            Tetradic tetradic = _context.Tetradic.FirstOrDefault(t => t.Color.ColorName == id);
-            if (tetradic == null)
+            Color color = _context.Colors.FirstOrDefault(t => t.ColorName == id);
+            Tetradic tetradic = _context.Tetradic.FirstOrDefault(t => t.ColorOneID == color.ID || t.ColorTwoID == color.ID || t.ColorThreeID == color.ID || t.ColorFourID == color.ID);
+            if (color == null || tetradic == null)
             {
                 return NotFound();
             }

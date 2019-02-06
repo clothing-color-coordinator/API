@@ -35,9 +35,10 @@ namespace ColorWheelAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            Triadic triadic = _context.Triadic.FirstOrDefault(a => a.Color.ColorName == id);
+            Color color = _context.Colors.FirstOrDefault(t => t.ColorName == id);
+            Triadic triadic = _context.Triadic.FirstOrDefault(t => t.ColorOneID == color.ID || t.ColorTwoID == color.ID || t.ColorThreeID == color.ID);
 
-            if (triadic == null)
+            if (color == null || triadic == null)
             {
                 return NotFound();
             }

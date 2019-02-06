@@ -59,6 +59,12 @@ Version 1.4 February 05, 2019
 ## Schema Table
 ![](assets/MidtermTables.PNG?raw=true)
 
-## Collaberators
-* [Carlos Castillo](#castillocarlosr)
-* [Charles Clemens](#CClemensJr)
+## author
+
+* **Carlos Castillo** - *Initial work* - [castillocarlosr](https://github.com/castillocarlosr])
+* **Charles Clemens** - *Initial work* - [CClemensJr](https://github.com/CClemensJr)
+
+## license
+```
+	This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+```

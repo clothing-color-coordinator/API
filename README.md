@@ -1,8 +1,10 @@
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar1.jpg "Colors")
+
 # Color Wheel API
 
 An API for a color wheel color matching based on matching color theory.
 
-![](assets/colorsFullBars.jpg?raw=true)
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar2.jpg "Colors")
 
 ## Purpose:
 ```

@@ -34,7 +34,7 @@ namespace ColorWheelAPIxUnitTDD
             Assert.Equal("fff00", testColor.HexCode);
         }
 
-        
+        /*
         [Fact]
         public async void CrudColorsInDb()
         {
@@ -58,7 +58,7 @@ namespace ColorWheelAPIxUnitTDD
                 Assert.Equal("Blue", colorNew.ColorName);
                 Assert.Equal("#0000ff", colorNew.HexCode);
 
-                /*UPDATE
+                //UPDATE
                 colorNew.colorName = "Brown";
                 colorNew.HexCode = "#654321";
                 context.Update(colorNew);
@@ -67,16 +67,16 @@ namespace ColorWheelAPIxUnitTDD
                 Assert.Equal("Brown", updateColor.ColorName);
                 Assert.Equal("#654321", updateColor.HexCode);
 
-                DELETE
+                //DELETE
                 context.Colors.Remove(updateColor);
                 context.SaveChanges();
                 var deleteColor = await context.Colors.FirstOrDefaultAsync(c => c.ColorName == color.ColorName && c.HexCode == color.HexCode);
                 Assert.True(deleteColor == null);
-                */
+                
             }
         }
 
-        
+        */
 
     }
 }

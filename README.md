@@ -21,15 +21,8 @@
 ## purpose:
 ```
 	This API exists to hopefully make live a little simpler for anyone that works with color.
-	Send a color to one of our many endpoints and receive a color palette back, complete with the color name and hex codes
+	Send a color to one of our many endpoints and receive a color palette back, complete with the color name and hex codes.
 ```
-
-## summary:
-- The API will have several tables with Primary and Foreign keys matches with the tables
-- A request sent out to the table first checks the color table if color exsist.
-- If not null, the color with follow one of six paths made by the front end point.
-- The matching table is then access and the data containing the matching color is returned to the front-end point.
-- Future updates may be made to this API.
 
 ## endpoints
 - **api/Get(PaletteName)Palette/(Color)**

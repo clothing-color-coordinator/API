@@ -11,6 +11,7 @@
 * [endpoints](#endpoints)
 * [methods](#methods)
 * [schema](#schema)
+* [notes](#notes)
 * [versions](#versions)
 * [authors](#authors)
 * [license](#license)
@@ -19,9 +20,8 @@
 
 ## purpose:
 ```
-This is a personal made API.
-A color is requested to the API.
-The API matches a color that is requested to this API in a JSON file.
+	This API exists to hopefully make live a little simpler for anyone that works with color.
+	Send a color to one of our many endpoints and receive a color palette back, complete with the color name and hex codes
 ```
 
 ## summary:
@@ -62,6 +62,9 @@ ex. Triadic
 
 ## schema
 ![](assets/MidtermTables.PNG?raw=true)
+
+## notes
+
 
 ## versions:
 ```

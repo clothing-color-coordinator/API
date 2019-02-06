@@ -34,6 +34,11 @@ namespace ColorWheelAPI
 
             //services.AddDbContext<ColorWheelDbContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "The Color Wheel API", Version = "v1" });
+            });
             
         }
 

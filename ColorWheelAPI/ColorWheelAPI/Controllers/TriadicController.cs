@@ -49,7 +49,7 @@ namespace ColorWheelAPI.Controllers
 
             List<Color> palette = new List<Color> { color1, color2, color3};
 
-            return Ok(triadic);
+            return Ok(new { palette });
         }
     }
 }

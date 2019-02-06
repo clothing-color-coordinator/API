@@ -27,9 +27,9 @@ namespace ColorWheelAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Analogous>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID });
-            modelBuilder.Entity<Complimentary>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID });
+            modelBuilder.Entity<Complementary>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID });
             modelBuilder.Entity<Monochromatic>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID });
-            modelBuilder.Entity<SplitComplimentary>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID });
+            modelBuilder.Entity<SplitComplementary>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID });
             modelBuilder.Entity<Tetradic>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID, ce.ColorFourID });
             modelBuilder.Entity<Triadic>().HasKey(ce => new { ce.ColorOneID, ce.ColorTwoID, ce.ColorThreeID });
 
@@ -63,35 +63,35 @@ namespace ColorWheelAPI.Data
                     new Analogous { ID = 11, ColorOneID = 11, ColorTwoID = 12, ColorThreeID = 10 },
                     new Analogous { ID = 12, ColorOneID = 12, ColorTwoID = 1, ColorThreeID = 11 });
 
-            modelBuilder.Entity<Complimentary>()
+            modelBuilder.Entity<Complementary>()
                 .HasData(
-                    new Complimentary { ID = 1, ColorOneID = 1, ColorTwoID = 7 },
-                    new Complimentary { ID = 2, ColorOneID = 2, ColorTwoID = 8 },
-                    new Complimentary { ID = 3, ColorOneID = 3, ColorTwoID = 9 },
-                    new Complimentary { ID = 4, ColorOneID = 4, ColorTwoID = 10 },
-                    new Complimentary { ID = 5, ColorOneID = 5, ColorTwoID = 11 },
-                    new Complimentary { ID = 6, ColorOneID = 6, ColorTwoID = 12 },
-                    new Complimentary { ID = 7, ColorOneID = 7, ColorTwoID = 1 },
-                    new Complimentary { ID = 8, ColorOneID = 8, ColorTwoID = 2 },
-                    new Complimentary { ID = 9, ColorOneID = 9, ColorTwoID = 3 },
-                    new Complimentary { ID = 10, ColorOneID = 10, ColorTwoID = 4 },
-                    new Complimentary { ID = 11, ColorOneID = 11, ColorTwoID = 5 },
-                    new Complimentary { ID = 12, ColorOneID = 12, ColorTwoID = 6 });
+                    new Complementary { ID = 1, ColorOneID = 1, ColorTwoID = 7 },
+                    new Complementary { ID = 2, ColorOneID = 2, ColorTwoID = 8 },
+                    new Complementary { ID = 3, ColorOneID = 3, ColorTwoID = 9 },
+                    new Complementary { ID = 4, ColorOneID = 4, ColorTwoID = 10 },
+                    new Complementary { ID = 5, ColorOneID = 5, ColorTwoID = 11 },
+                    new Complementary { ID = 6, ColorOneID = 6, ColorTwoID = 12 },
+                    new Complementary { ID = 7, ColorOneID = 7, ColorTwoID = 1 },
+                    new Complementary { ID = 8, ColorOneID = 8, ColorTwoID = 2 },
+                    new Complementary { ID = 9, ColorOneID = 9, ColorTwoID = 3 },
+                    new Complementary { ID = 10, ColorOneID = 10, ColorTwoID = 4 },
+                    new Complementary { ID = 11, ColorOneID = 11, ColorTwoID = 5 },
+                    new Complementary { ID = 12, ColorOneID = 12, ColorTwoID = 6 });
 
-            modelBuilder.Entity<SplitComplimentary>()
+            modelBuilder.Entity<SplitComplementary>()
                 .HasData(
-                    new SplitComplimentary { ID = 1, ColorOneID = 1, ColorTwoID = 6, ColorThreeID = 8 },
-                    new SplitComplimentary { ID = 2, ColorOneID = 2, ColorTwoID = 7, ColorThreeID = 9 },
-                    new SplitComplimentary { ID = 3, ColorOneID = 3, ColorTwoID = 8, ColorThreeID = 10 },
-                    new SplitComplimentary { ID = 4, ColorOneID = 4, ColorTwoID = 9, ColorThreeID = 11 },
-                    new SplitComplimentary { ID = 5, ColorOneID = 5, ColorTwoID = 10, ColorThreeID = 12 },
-                    new SplitComplimentary { ID = 6, ColorOneID = 6, ColorTwoID = 11, ColorThreeID = 1 },
-                    new SplitComplimentary { ID = 7, ColorOneID = 7, ColorTwoID = 12, ColorThreeID = 2 },
-                    new SplitComplimentary { ID = 8, ColorOneID = 8, ColorTwoID = 1, ColorThreeID = 3 },
-                    new SplitComplimentary { ID = 9, ColorOneID = 9, ColorTwoID = 2, ColorThreeID = 4 },
-                    new SplitComplimentary { ID = 10, ColorOneID = 10, ColorTwoID = 3, ColorThreeID = 5 },
-                    new SplitComplimentary { ID = 11, ColorOneID = 11, ColorTwoID = 4, ColorThreeID = 6 },
-                    new SplitComplimentary { ID = 12, ColorOneID = 12, ColorTwoID = 5, ColorThreeID = 7 });
+                    new SplitComplementary { ID = 1, ColorOneID = 1, ColorTwoID = 6, ColorThreeID = 8 },
+                    new SplitComplementary { ID = 2, ColorOneID = 2, ColorTwoID = 7, ColorThreeID = 9 },
+                    new SplitComplementary { ID = 3, ColorOneID = 3, ColorTwoID = 8, ColorThreeID = 10 },
+                    new SplitComplementary { ID = 4, ColorOneID = 4, ColorTwoID = 9, ColorThreeID = 11 },
+                    new SplitComplementary { ID = 5, ColorOneID = 5, ColorTwoID = 10, ColorThreeID = 12 },
+                    new SplitComplementary { ID = 6, ColorOneID = 6, ColorTwoID = 11, ColorThreeID = 1 },
+                    new SplitComplementary { ID = 7, ColorOneID = 7, ColorTwoID = 12, ColorThreeID = 2 },
+                    new SplitComplementary { ID = 8, ColorOneID = 8, ColorTwoID = 1, ColorThreeID = 3 },
+                    new SplitComplementary { ID = 9, ColorOneID = 9, ColorTwoID = 2, ColorThreeID = 4 },
+                    new SplitComplementary { ID = 10, ColorOneID = 10, ColorTwoID = 3, ColorThreeID = 5 },
+                    new SplitComplementary { ID = 11, ColorOneID = 11, ColorTwoID = 4, ColorThreeID = 6 },
+                    new SplitComplementary { ID = 12, ColorOneID = 12, ColorTwoID = 5, ColorThreeID = 7 });
 
             modelBuilder.Entity<Tetradic>()
                 .HasData(
@@ -126,8 +126,8 @@ namespace ColorWheelAPI.Data
 
         public DbSet<Color> Colors { get; set; } 
         public DbSet<Analogous> Analogous { get; set; }
-        public DbSet<Complimentary> Complimentary { get; set; }
-        public DbSet<SplitComplimentary> SplitComplimentary { get; set; }
+        public DbSet<Complementary> Complementary { get; set; }
+        public DbSet<SplitComplementary> SplitComplementary { get; set; }
         public DbSet<Tetradic> Tetradic { get; set; }
         public DbSet<Triadic> Triadic { get; set; }
     }

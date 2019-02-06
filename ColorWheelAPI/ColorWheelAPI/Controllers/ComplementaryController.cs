@@ -12,7 +12,7 @@ namespace ColorWheelAPI.Controllers
     [Route("api/Get[controller]Palette")]
     [Route("api/Check[controller]")]
     [ApiController]
-    public class ComplimentaryController : ControllerBase
+    public class ComplementaryController : ControllerBase
     {
         private ColorWheelDbContext _context;
 
@@ -21,7 +21,7 @@ namespace ColorWheelAPI.Controllers
         /// Custom constructor that facilitates dependency injection.
         /// </summary>
         /// <param name="context"></param>
-        public ComplimentaryController(ColorWheelDbContext context)
+        public ComplementaryController(ColorWheelDbContext context)
         {
             _context = context;
         }
@@ -36,7 +36,7 @@ namespace ColorWheelAPI.Controllers
         public IActionResult Get(string id)
         {
             Color color = _context.Colors.FirstOrDefault(c => c.ColorName == id);
-            Complimentary complimentary = _context.Complimentary.FirstOrDefault(a => a.ColorOneID == color.ID || a.ColorTwoID == color.ID);
+            Complementary complimentary = _context.Complementary.FirstOrDefault(a => a.ColorOneID == color.ID || a.ColorTwoID == color.ID);
 
             if (color == null || complimentary == null)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ColorWheelAPI.Models
 {
-    public class SplitComplimentary
+    public class Complementary
     {
         public int ID { get; set; }
 
@@ -18,10 +18,6 @@ namespace ColorWheelAPI.Models
 
         [ForeignKey("ColorTwoID")]
         public int ColorTwoID { get; set; }
-
-        [ForeignKey("ColorThreeID")]
-        public int ColorThreeID { get; set; }
-
 
         /// <summary>
         /// Navigation

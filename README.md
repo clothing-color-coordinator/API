@@ -1,9 +1,9 @@
-![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar1.jpg "Colors")
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar1.PNG "Colors")
 
 # the color wheel api
 > **the** api for all of your color palette needs!
 
-![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar2.jpg "Colors")
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/colorBar2.PNG "Colors")
 
 ## table of contents
 * [purpose](#purpose)
@@ -41,47 +41,37 @@
 `	https://colorwheelapi20190205024526.azurewebsites.net/api/GetAnalogousPalette/Red `
 
 #### response
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getAnalogousResponse.PNG "GetAnalogousPalette")
 
 ### getcomplementarypalette
 #### request
 `	https://colorwheelapi20190205024526.azurewebsites.net/api/GetComplementaryPalette/Red `
 
 #### response
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getComplementaryResponse.PNG "GetAnalogousPalette")
 
 ### getsplitcomplementarypalette
 #### request
 `	https://colorwheelapi20190205024526.azurewebsites.net/api/GetSplitComplementaryPalette/Red `
 
 #### response
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getSplitComplementaryResponse.PNG "GetAnalogousPalette")
 
 ### gettetradicalette
 #### request
 `	https://colorwheelapi20190205024526.azurewebsites.net/api/GetTetradicPalette/Red `
 
 #### response
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getTetradicResponse.PNG "GetAnalogousPalette")
 
 ### gettriadicpalette
 #### request
 `	https://colorwheelapi20190205024526.azurewebsites.net/api/GetTriadicPalette/Red `
 
 #### response
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getTriadicResponse.PNG "GetAnalogousPalette")
 
-```
-{
-    "id": 2,
-    "colorOneID": 2,
-    "colorTwoID": 6,
-    "colorThreeID": 10,
-    "color": {
-        "id": 2,
-        "colorName": "Yellow-Green",
-        "hexCode": "#B2D732"
-    "color": {
-        "id": 6,
-        ...............       
-    }
-}
-```
+
 ## methods
 * GET
 * PUT

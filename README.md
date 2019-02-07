@@ -24,6 +24,17 @@
 	Send a color to one of our many endpoints and receive a color palette back, complete with the color name and hex codes.
 ```
 
+## summary
+```
+	The Color Wheel API provides color palettes based on user input and the color wheel.
+	Each endpoint takes a color name and returns a JSON object for their specific color scheme:
+		- GetAnalogousPalette: Returns an [analogous palette](https://en.wikipedia.org/wiki/Analogous_colors).
+		- GetComplementaryPalette: Returns a [complementary palette](https://en.wikipedia.org/wiki/Complementary_colors).
+		- GetAnalogousPalette: Returns [split complementary palette](https://en.wikipedia.org/wiki/Color_scheme#Complementary).
+		- GetAnalogousPalette: Returns [triadic palette](https://en.wikipedia.org/wiki/Color_scheme#Triadic).
+		- GetAnalogousPalette: Returns [tetradic palette](https://en.wikipedia.org/wiki/Color_scheme#Tetradic).
+```
+
 ## endpoints
 - **api/Get(PaletteName)Palette/(Color)**
 - Format needed for the request should be Capital first letter and the rest lower-case.  ex. Green

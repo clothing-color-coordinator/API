@@ -73,10 +73,12 @@
 
 
 ## methods
-* GET
-* PUT
-* POST
-* DELETE
+```
+	Each controller has a single Get method. The method verifies the inbound color exists in the database,
+	creates a palette if the color is in the specified palette table, and returns an error if either the palette or color is null.
+	If not, it creates a Color object for each color in the palette, puts it in a list, and then returns the list of Color objects
+	via the ASP.NET Core OK method.
+```
 
 
 ## schema

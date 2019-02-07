@@ -53,7 +53,7 @@ namespace ColorWheelAPI.Controllers
 
 
 
-        [HttpGet("{id},{id},{id}")]
+        [HttpGet("{id1},{id2},{id3}")]
         public IActionResult Get(string id1, string id2, string id3)
         {
             Color color1 = _context.Colors.FirstOrDefault(c => c.ColorName == id1);
@@ -65,15 +65,20 @@ namespace ColorWheelAPI.Controllers
                 return NotFound();
             }
 
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ColorOneID == color1.ID && a.ColorTwoID == color2.ID && a.ColorThreeID == color3.ID);
+            Analogous palette = new Analogous();
 
-            if (analogous == null)
+            palette.ColorOneID = color1.ID;
+            palette.ColorTwoID = color3.ID;
+            palette.ColorThreeID = color2.ID;
+
+            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
+
+            if (palette.ColorOneID == analogous.ColorOneID && palette.ColorTwoID == analogous.ColorTwoID && palette.ColorThreeID == analogous.ColorThreeID)
             {
-                return Ok(false);
+                return Ok(true);
             }
 
-
-            return Ok(true);
+            return Ok(false);
         }
 
     }

@@ -82,9 +82,13 @@
 
 
 ## schema
-![](assets/MidtermTables.PNG?raw=true)
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/MidtermTables.PNG "Database Schema")
 
 ## notes
+```
+	- Colors sent to an endpoint must be sent via a capitalize string, i.e. Red
+	- Colors that are made up of two color names must have a both names capitalized and a dash between them, i.e. Yellow-Green
+```
 
 
 ## versions:

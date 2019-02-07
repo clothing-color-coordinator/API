@@ -72,15 +72,15 @@ namespace ColorWheelAPI.Controllers
                 return NotFound();
             }
 
-            Analogous palette = new Analogous();
+            Triadic palette = new Triadic();
 
             palette.ColorOneID = color1.ID;
-            palette.ColorTwoID = color3.ID;
-            palette.ColorThreeID = color2.ID;
+            palette.ColorTwoID = color2.ID;
+            palette.ColorThreeID = color3.ID;
 
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
+            Triadic triadic = _context.Triadic.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
 
-            if (palette.ColorOneID == analogous.ColorOneID && palette.ColorTwoID == analogous.ColorTwoID && palette.ColorThreeID == analogous.ColorThreeID)
+            if (palette.ColorOneID == triadic.ColorOneID && palette.ColorTwoID == triadic.ColorTwoID && palette.ColorThreeID == triadic.ColorThreeID)
             {
                 return Ok(true);
             }

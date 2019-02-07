@@ -60,7 +60,7 @@ namespace ColorWheelAPI.Controllers
         /// <param name="id2"></param>
         /// <param name="id3"></param>
         /// <returns>True or False</returns>
-        [HttpGet("{id1},{id2},{id3},id4")]
+        [HttpGet("{id1},{id2},{id3},{id4}")]
         public IActionResult Get(string id1, string id2, string id3, string id4)
         {
             Color color1 = _context.Colors.FirstOrDefault(c => c.ColorName == id1);

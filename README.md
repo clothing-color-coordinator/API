@@ -30,17 +30,42 @@
 	Each endpoint takes a color name and returns a JSON object for their specific color scheme:
 		- GetAnalogousPalette: Returns an [analogous palette](https://en.wikipedia.org/wiki/Analogous_colors).
 		- GetComplementaryPalette: Returns a [complementary palette](https://en.wikipedia.org/wiki/Complementary_colors).
-		- GetAnalogousPalette: Returns [split complementary palette](https://en.wikipedia.org/wiki/Color_scheme#Complementary).
-		- GetAnalogousPalette: Returns [triadic palette](https://en.wikipedia.org/wiki/Color_scheme#Triadic).
-		- GetAnalogousPalette: Returns [tetradic palette](https://en.wikipedia.org/wiki/Color_scheme#Tetradic).
+		- GetSplitComplementaryPalette: Returns [split complementary palette](https://en.wikipedia.org/wiki/Color_scheme#Complementary).
+		- GetTetradicPalette: Returns [tetradic palette](https://en.wikipedia.org/wiki/Color_scheme#Tetradic).
+		- GetTriadicPalette: Returns [triadic palette](https://en.wikipedia.org/wiki/Color_scheme#Triadic).
 ```
 
 ## endpoints
-- **api/Get(PaletteName)Palette/(Color)**
-- Format needed for the request should be Capital first letter and the rest lower-case.  ex. Green
-ex. Triadic
-- For hybrid color, a dash is required between the two colors. ex Blue-Green
-- example:  
+### getanalogouspalette
+#### request
+`	https://colorwheelapi20190205024526.azurewebsites.net/api/GetAnalogousPalette/Red `
+
+#### response
+
+### getcomplementarypalette
+#### request
+`	https://colorwheelapi20190205024526.azurewebsites.net/api/GetComplementaryPalette/Red `
+
+#### response
+
+### getsplitcomplementarypalette
+#### request
+`	https://colorwheelapi20190205024526.azurewebsites.net/api/GetSplitComplementaryPalette/Red `
+
+#### response
+
+### gettetradicalette
+#### request
+`	https://colorwheelapi20190205024526.azurewebsites.net/api/GetTetradicPalette/Red `
+
+#### response
+
+### gettriadicpalette
+#### request
+`	https://colorwheelapi20190205024526.azurewebsites.net/api/GetTriadicPalette/Red `
+
+#### response
+
 ```
 {
     "id": 2,

@@ -26,18 +26,19 @@ namespace ColorWheelAPIxUnitTDD
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options4))
+            using (ColorWheelDbContext dbContext4 = new ColorWheelDbContext(options4))
             {
                 Color color = new Color();
                 color.ColorName = "Yellow";
                 Complementary complementary = new Complementary();
                 complementary.ColorOneID = 1;
-                dbContext.Add(color);
-                dbContext.Add(complementary);
-                dbContext.SaveChanges();
+                complementary.ColorTwoID = 7;
+                dbContext4.Add(color);
+                dbContext4.Add(complementary);
+                dbContext4.SaveChanges();
 
                 var expected = "Yellow";
-                var controller = new ComplementaryController(dbContext);
+                var controller = new ComplementaryController(dbContext4);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);
@@ -50,19 +51,19 @@ namespace ColorWheelAPIxUnitTDD
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options5))
+            using (ColorWheelDbContext dbContext5 = new ColorWheelDbContext(options5))
             {
                 Color color = new Color();
                 color.ColorName = "Red";
                 Complementary complementary = new Complementary();
                 complementary.ColorOneID = 1;
-                complementary.ColorTwoID = 2;
-                dbContext.Add(color);
-                dbContext.Add(complementary);
-                dbContext.SaveChanges();
+                complementary.ColorTwoID = 10;
+                dbContext5.Add(color);
+                dbContext5.Add(complementary);
+                dbContext5.SaveChanges();
 
                 var expected = "Red";
-                var controller = new ComplementaryController(dbContext);
+                var controller = new ComplementaryController(dbContext5);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);
@@ -75,19 +76,19 @@ namespace ColorWheelAPIxUnitTDD
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options6))
+            using (ColorWheelDbContext dbContext6 = new ColorWheelDbContext(options6))
             {
                 Color color = new Color();
                 color.ColorName = "Orange";
                 Complementary complementary = new Complementary();
-                complementary.ColorOneID = 8;
-                complementary.ColorTwoID = 3;
-                dbContext.Add(color);
-                dbContext.Add(complementary);
-                dbContext.SaveChanges();
+                complementary.ColorOneID = 1;
+                complementary.ColorTwoID = 4;
+                dbContext6.Add(color);
+                dbContext6.Add(complementary);
+                dbContext6.SaveChanges();
 
                 var expected = "Orange";
-                var controller = new ComplementaryController(dbContext);
+                var controller = new ComplementaryController(dbContext6);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);

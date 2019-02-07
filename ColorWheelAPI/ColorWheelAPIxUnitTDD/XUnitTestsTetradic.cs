@@ -22,25 +22,25 @@ namespace ColorWheelAPIxUnitTDD
         [Fact]
         public void TetradicController1()
         {
-            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+            DbContextOptions<ColorWheelDbContext> options10 = new DbContextOptionsBuilder<ColorWheelDbContext>()
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
+            using (ColorWheelDbContext dbContext10 = new ColorWheelDbContext(options10))
             {
                 Color color = new Color();
                 color.ColorName = "Red-Violet";
                 Tetradic tetradic = new Tetradic();
                 tetradic.ColorOneID = 1;
-                tetradic.ColorTwoID = 4;
-                tetradic.ColorThreeID = 8;
-                tetradic.ColorFourID = 12;
-                dbContext.Add(color);
-                dbContext.Add(tetradic);
-                dbContext.SaveChanges();
+                tetradic.ColorTwoID = 7;
+                tetradic.ColorThreeID = 3;
+                tetradic.ColorFourID = 9;
+                dbContext10.Add(color);
+                dbContext10.Add(tetradic);
+                dbContext10.SaveChanges();
 
                 var expected = "Red-Violet";
-                var controller = new TetradicController(dbContext);
+                var controller = new TetradicController(dbContext10);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);
@@ -49,25 +49,25 @@ namespace ColorWheelAPIxUnitTDD
         [Fact]
         public void TetradicController2()
         {
-            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+            DbContextOptions<ColorWheelDbContext> options11 = new DbContextOptionsBuilder<ColorWheelDbContext>()
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
+            using (ColorWheelDbContext dbContext11 = new ColorWheelDbContext(options11))
             {
                 Color color = new Color();
                 color.ColorName = "Green";
                 Tetradic tetradic = new Tetradic();
-                tetradic.ColorOneID = 1;
-                tetradic.ColorTwoID = 2;
-                tetradic.ColorThreeID = 3;
-                tetradic.ColorFourID = 4;
-                dbContext.Add(color);
-                dbContext.Add(tetradic);
-                dbContext.SaveChanges();
+                tetradic.ColorOneID = 5;
+                tetradic.ColorTwoID = 11;
+                tetradic.ColorThreeID = 7;
+                tetradic.ColorFourID = 1;
+                dbContext11.Add(color);
+                dbContext11.Add(tetradic);
+                dbContext11.SaveChanges();
 
                 var expected = "Green";
-                var controller = new TetradicController(dbContext);
+                var controller = new TetradicController(dbContext11);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);
@@ -76,25 +76,25 @@ namespace ColorWheelAPIxUnitTDD
         [Fact]
         public void TetradicController3()
         {
-            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+            DbContextOptions<ColorWheelDbContext> options12 = new DbContextOptionsBuilder<ColorWheelDbContext>()
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
+            using (ColorWheelDbContext dbContext12 = new ColorWheelDbContext(options12))
             {
                 Color color = new Color();
                 color.ColorName = "Blue-Violet";
                 Tetradic tetradic = new Tetradic();
-                tetradic.ColorOneID = 11;
+                tetradic.ColorOneID = 10;
                 tetradic.ColorTwoID = 4;
-                tetradic.ColorThreeID = 6;
-                tetradic.ColorFourID = 7;
-                dbContext.Add(color);
-                dbContext.Add(tetradic);
-                dbContext.SaveChanges();
+                tetradic.ColorThreeID = 12;
+                tetradic.ColorFourID = 6;
+                dbContext12.Add(color);
+                dbContext12.Add(tetradic);
+                dbContext12.SaveChanges();
 
                 var expected = "Blue-Violet";
-                var controller = new TetradicController(dbContext);
+                var controller = new TetradicController(dbContext12);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);

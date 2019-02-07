@@ -51,5 +51,43 @@ namespace ColorWheelAPI.Controllers
 
             return Ok(new { palette });
         }
+
+
+        /// <summary>
+        /// This action takes a number of colors, checks that they exist in the database, checks if they exist as a palette in the database, and then returns true or false depending on whether or not the colors match the intended color palette.
+        /// </summary>
+        /// <param name="id1"></param>
+        /// <param name="id2"></param>
+        /// <param name="id3"></param>
+        /// <returns>True or False</returns>
+        [HttpGet("{id1},{id2},{id3},{id4}")]
+        public IActionResult Get(string id1, string id2, string id3, string id4)
+        {
+            Color color1 = _context.Colors.FirstOrDefault(c => c.ColorName == id1);
+            Color color2 = _context.Colors.FirstOrDefault(c => c.ColorName == id2);
+            Color color3 = _context.Colors.FirstOrDefault(c => c.ColorName == id3);
+            Color color4 = _context.Colors.FirstOrDefault(c => c.ColorName == id4);
+
+            if (color1 == null || color2 == null || color3 == null || color4 == null)
+            {
+                return NotFound();
+            }
+
+            Tetradic palette = new Tetradic();
+
+            palette.ColorOneID = color1.ID;
+            palette.ColorTwoID = color2.ID;
+            palette.ColorThreeID = color3.ID;
+            palette.ColorFourID = color4.ID;
+
+            Tetradic tetradic = _context.Tetradic.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
+
+            if (palette.ColorOneID == tetradic.ColorOneID && palette.ColorTwoID == tetradic.ColorTwoID && palette.ColorThreeID == tetradic.ColorThreeID && tetradic.ColorFourID == palette.ColorFourID)
+            {
+                return Ok(true);
+            }
+
+            return Ok(false);
+        }
     }
 }

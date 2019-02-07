@@ -72,15 +72,15 @@ namespace ColorWheelAPI.Controllers
                 return NotFound();
             }
 
-            Analogous palette = new Analogous();
+            SplitComplementary palette = new SplitComplementary();
 
             palette.ColorOneID = color1.ID;
             palette.ColorTwoID = color3.ID;
             palette.ColorThreeID = color2.ID;
 
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
+            SplitComplementary splitComplementary = _context.SplitComplementary.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
 
-            if (palette.ColorOneID == analogous.ColorOneID && palette.ColorTwoID == analogous.ColorTwoID && palette.ColorThreeID == analogous.ColorThreeID)
+            if (palette.ColorOneID == splitComplementary.ColorOneID && palette.ColorTwoID == splitComplementary.ColorTwoID && palette.ColorThreeID == splitComplementary.ColorThreeID)
             {
                 return Ok(true);
             }

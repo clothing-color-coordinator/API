@@ -75,8 +75,8 @@ namespace ColorWheelAPI.Controllers
             SplitComplementary palette = new SplitComplementary();
 
             palette.ColorOneID = color1.ID;
-            palette.ColorTwoID = color3.ID;
-            palette.ColorThreeID = color2.ID;
+            palette.ColorTwoID = color2.ID;
+            palette.ColorThreeID = color3.ID;
 
             SplitComplementary splitComplementary = _context.SplitComplementary.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
 

@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace ColorWheelAPIxUnitTDD
 {
@@ -255,163 +257,409 @@ namespace ColorWheelAPIxUnitTDD
 
     /*********************************Controller & Database********************************************/
 
-    public class ControllerTests
+    public class AnalogousControllerTests
     {
-        private readonly IConfiguration configuration;
         [Fact]
-        public void AnalogousTest1()
+        public void AnalogousController1()
+        {
+            DbContextOptions<ColorWheelDbContext> options1 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options1))
+            {
+                Color color = new Color();
+                color.ColorName = "Blue";
+                Analogous analogous = new Analogous();
+                analogous.ColorOneID = 1;
+                dbContext.Add(color);
+                dbContext.Add(analogous);
+                dbContext.SaveChanges();
+
+                var expected = "Blue";
+                var controller = new AnalogousController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+        [Fact]
+        public void AnalogousController2()
+        {
+            DbContextOptions<ColorWheelDbContext> options2 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options2))
+            {
+                Color color = new Color();
+                color.ColorName = "Green";
+                Analogous analogous = new Analogous();
+                analogous.ColorOneID = 1;
+                analogous.ColorTwoID = 2;
+                dbContext.Add(color);
+                dbContext.Add(analogous);
+                dbContext.SaveChanges();
+
+                var expected = "Green";
+                var controller = new AnalogousController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+        [Fact]
+        public void AnalogousController3()
+        {
+            DbContextOptions<ColorWheelDbContext> options3 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options3))
+            {
+                Color color = new Color();
+                color.ColorName = "Yellow";
+                Analogous analogous = new Analogous();
+                analogous.ColorOneID = 1;
+                analogous.ColorTwoID = 2;
+                analogous.ColorThreeID = 3;
+                dbContext.Add(color);
+                dbContext.Add(analogous);
+                dbContext.SaveChanges();
+
+                var expected = "Yellow";
+                var controller = new AnalogousController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+    }
+
+    public class ComplementaryTests
+    {
+        [Fact]
+        public void ComplementaryController1()
+        {
+            DbContextOptions<ColorWheelDbContext> options4 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options4))
+            {
+                Color color = new Color();
+                color.ColorName = "Yellow";
+                Complementary complementary = new Complementary();
+                complementary.ColorOneID = 1;
+                dbContext.Add(color);
+                dbContext.Add(complementary);
+                dbContext.SaveChanges();
+
+                var expected = "Yellow";
+                var controller = new ComplementaryController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+        [Fact]
+        public void ComplementaryController2()
+        {
+            DbContextOptions<ColorWheelDbContext> options5 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options5))
+            {
+                Color color = new Color();
+                color.ColorName = "Red";
+                Complementary complementary = new Complementary();
+                complementary.ColorOneID = 1;
+                complementary.ColorTwoID = 2;
+                dbContext.Add(color);
+                dbContext.Add(complementary);
+                dbContext.SaveChanges();
+
+                var expected = "Red";
+                var controller = new ComplementaryController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+        [Fact]
+        public void ComplementaryController3()
+        {
+            DbContextOptions<ColorWheelDbContext> options6 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options6))
+            {
+                Color color = new Color();
+                color.ColorName = "Orange";
+                Complementary complementary = new Complementary();
+                complementary.ColorOneID = 8;
+                complementary.ColorTwoID = 3;
+                dbContext.Add(color);
+                dbContext.Add(complementary);
+                dbContext.SaveChanges();
+
+                var expected = "Orange";
+                var controller = new ComplementaryController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+    }
+
+    public class SplitComplementaryTests
+    {
+        [Fact]
+        public void SplitComplementaryController1()
+        {
+            DbContextOptions<ColorWheelDbContext> options7 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options7))
+            {
+                Color color = new Color();
+                color.ColorName = "Red-Orange";
+                SplitComplementary split = new SplitComplementary();
+                split.ColorOneID = 9;
+                split.ColorTwoID = 2;
+                split.ColorThreeID = 12;
+                dbContext.Add(color);
+                dbContext.Add(split);
+                dbContext.SaveChanges();
+
+                var expected = "Red-Orange";
+                var controller = new SplitComplementaryController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+        [Fact]
+        public void SplitComplementaryController2()
+        {
+            DbContextOptions<ColorWheelDbContext> options8 = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options8))
+            {
+                Color color = new Color();
+                color.ColorName = "Blue";
+                SplitComplementary split = new SplitComplementary();
+                split.ColorOneID = 7;
+                split.ColorTwoID = 2;
+                split.ColorThreeID = 3;
+                dbContext.Add(color);
+                dbContext.Add(split);
+                dbContext.SaveChanges();
+
+                var expected = "Blue";
+                var controller = new SplitComplementaryController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+        [Fact]
+        public void SplitComplementaryController3()
         {
             DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
-               .UseInMemoryDatabase(databaseName: "colorWheelDb")
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
             using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
             {
-                //Arrange
-                Analogous analogous = new Analogous();
                 Color color = new Color();
-                color.ColorName = "Blue";
-                analogous.ColorOneID = 1;
-                analogous.ColorTwoID = 2;
-                analogous.ColorThreeID = 3;
-
-                //Act
-                dbContext.Colors.Add(color);
+                color.ColorName = "Red-Violet";
+                SplitComplementary split = new SplitComplementary();
+                split.ColorOneID = 5;
+                split.ColorTwoID = 9;
+                split.ColorThreeID = 11;
+                dbContext.Add(color);
+                dbContext.Add(split);
                 dbContext.SaveChanges();
 
-                AnalogousController _controller = new AnalogousController(dbContext);
-
-                var result = _controller.Get(color.ColorName);
-
-                //var result = context.Analogous.FirstOrDefault(a => a.ID == analogous.ColorOneID && a.ID == analogous.ColorTwoID && a.ID == analogous.ColorThreeID);
-
-                Assert.IsType<OkResult>(result);
-                //LOOK FOR TESTING NOT FOUND RESULT as well
+                var expected = "Red-Violet";
+                var controller = new SplitComplementaryController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
             }
-             //Assert.IsType<o>
         }
-        AnalogousController _analogousController;
+    }
+
+    public class TetradicTests
+    {
         [Fact]
-        public void AnalogousTest2()
+        public void TetradicController1()
         {
-            var result = _analogousController.Get("Yellow");
-            Assert.IsType<OkResult>(result);
-        }
-
-        /*
-        /// <summary>
-        /// Models for Getter and Setter
-        /// </summary>
-        [Fact]
-        public void CanGetIDforAnalogous()
-        {
-            Analogous analogous = new Analogous();
-            analogous.ColorOneID = 1;
-            analogous.ColorTwoID = 2;
-            analogous.ColorThreeID = 12;
-
-            Assert.Equal(1, analogous.ColorOneID);
-            Assert.Equal(2, analogous.ColorTwoID);
-            Assert.Equal(12, analogous.ColorThreeID);
-        }
-
-        [Fact]
-        public void CanReceiveInputFromEndPoint()
-        {
-            // This would verify that we can receive user input via the endpoints
-            // Assign
-
-
-            // Act
-
-            // Assert
-
-        }
-
-        [Fact]
-        public void CanGetColorFromDB()
-        {
-            // This would verify that we can get a color from db
-        }
-
-        DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
-               .UseInMemoryDatabase(databaseName: "colorWheelDb")
+            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-        [Fact]
-        public void Somehting()
-        {
-            using (ColorWheelDbContext context = new ColorWheelDbContext(options))
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
             {
-                //Arrange
-                Analogous analogous = new Analogous();
+                Color color = new Color();
+                color.ColorName = "Red-Violet";
+                Tetradic tetradic = new Tetradic();
+                tetradic.ColorOneID = 1;
+                tetradic.ColorTwoID = 4;
+                tetradic.ColorThreeID = 8;
+                tetradic.ColorFourID = 12;
+                dbContext.Add(color);
+                dbContext.Add(tetradic);
+                dbContext.SaveChanges();
+
+                var expected = "Red-Violet";
+                var controller = new TetradicController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        }
+        [Fact]
+        public void TetradicController2()
+        {
+            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
+            {
                 Color color = new Color();
                 color.ColorName = "Green";
-                analogous.ColorOneID = 1;
-                analogous.ColorTwoID = 2;
-                analogous.ColorThreeID = 3;
+                Tetradic tetradic = new Tetradic();
+                tetradic.ColorOneID = 1;
+                tetradic.ColorTwoID = 2;
+                tetradic.ColorThreeID = 3;
+                tetradic.ColorFourID = 4;
+                dbContext.Add(color);
+                dbContext.Add(tetradic);
+                dbContext.SaveChanges();
 
-                //Act
-                context.Colors.Add(color);
-                context.SaveChanges();
-
-                AnalogousController _controller = new AnalogousController(context);
-
-                var result = _controller.Get("Green");
+                var expected = "Green";
+                var controller = new TetradicController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
             }
         }
-        
         [Fact]
-        public void CanGetPaletteFromDB()
+        public void TetradicController3()
         {
-            // This would verify that we can get a color from db
-            
-            
+            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
 
-            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
-            builder.AddUserSecrets<Startup>();
-            var configuration = builder.Build();
-            using (var context = new ColorWheelDbContext(options))
-
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
             {
-                var controller = new AnalogousController(configuration);
+                Color color = new Color();
+                color.ColorName = "Blue-Violet";
+                Tetradic tetradic = new Tetradic();
+                tetradic.ColorOneID = 11;
+                tetradic.ColorTwoID = 4;
+                tetradic.ColorThreeID = 6;
+                tetradic.ColorFourID = 7;
+                dbContext.Add(color);
+                dbContext.Add(tetradic);
+                dbContext.SaveChanges();
 
-                //Act
-                var results = controller.Get.CanGetColorFromDB("Green");
-
-                //Assert
-                Assert.IsType<Analogous>(results);
+                var expected = "Blue-Violet";
+                var controller = new TetradicController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
             }
         }
-        
+    }
+
+    public class TriadicTests
+    {
         [Fact]
-        public void CanReturnErrorIfColorIsNotInDb()
+        public void TriadicController1()
         {
-            // This would verify that error is sent if color not in db
+            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
+            {
+                Color color = new Color();
+                color.ColorName = "Red";
+                Triadic triadic = new Triadic();
+                triadic.ColorOneID = 1;
+                triadic.ColorTwoID = 2;
+                triadic.ColorThreeID = 3;
+                dbContext.Add(color);
+                dbContext.Add(triadic);
+                dbContext.SaveChanges();
+
+                var expected = "Red";
+                var controller = new TriadicController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
         }
-
         [Fact]
-        public void CanReturnErrorIfPaletteIsNotInDb()
+        public void TriadicController2()
         {
-            // This would verify that error is sent if palette not in db
+            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
+
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
+            {
+                Color color = new Color();
+                color.ColorName = "Blue-Violet";
+                Triadic triadic = new Triadic();
+                triadic.ColorOneID = 1;
+                triadic.ColorTwoID = 3;
+                triadic.ColorThreeID = 4;
+                dbContext.Add(color);
+                dbContext.Add(triadic);
+                dbContext.SaveChanges();
+
+                var expected = "Blue-Violet";
+                var controller = new TriadicController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
         }
-
         [Fact]
-        public void CanReturnValidJSON()
+        public void TriadicController3()
         {
-            // This would verify that return OK method sends a json object with a key:value pair
+            DbContextOptions<ColorWheelDbContext> options = new DbContextOptionsBuilder<ColorWheelDbContext>()
+               .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+               .Options;
 
-        }
+            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options))
+            {
+                Color color = new Color();
+                color.ColorName = "Yellow-Green";
+                Triadic triadic = new Triadic();
+                triadic.ColorOneID = 1;
+                triadic.ColorTwoID = 2;
+                triadic.ColorThreeID = 12;
+                dbContext.Add(color);
+                dbContext.Add(triadic);
+                dbContext.SaveChanges();
 
-        AnalogousController _analogousController;
-        [Fact]
-        public void AnalogousControllerTest()
-        {
-            //aRRANGE
-            //AnalogousController _analogousController;
-            //Act
-            var result = _analogousController.Get
-            Assert.IsType<object>(result);
-        }*/
+                var expected = "Yellow-Green";
+                var controller = new TriadicController(dbContext);
+                var actionResult = controller.Get(expected);
+                var okObjectResult = actionResult as OkObjectResult;
+                Assert.IsType<OkObjectResult>(actionResult);
+            }
+        } 
     }
 }

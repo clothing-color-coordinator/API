@@ -53,26 +53,28 @@ namespace ColorWheelAPI.Controllers
 
 
 
-        //[HttpGet("{id},{id},{id}")]
-        //public IActionResult Get(string id1, string id2, string id3)
-        //{
-            // Bring in context
-            //bool temp = false;
-            //Analogous analogous = _context.Analogous.FirstOrDefault(a => 
-            //{     
-            //    for (int i = 0; i < 12; i++)
-            //    {
-            //        if(a.ColorOneID. == id1)
-            //    }
-            //});
+        [HttpGet("{id},{id},{id}")]
+        public IActionResult Get(string id1, string id2, string id3)
+        {
+            Color color1 = _context.Colors.FirstOrDefault(c => c.ColorName == id1);
+            Color color2 = _context.Colors.FirstOrDefault(c => c.ColorName == id2);
+            Color color3 = _context.Colors.FirstOrDefault(c => c.ColorName == id3);
+
+            if (color1 == null || color2 == null || color3 == null)
+            {
+                return NotFound();
+            }
+
+            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ColorOneID == color1.ID && a.ColorTwoID == color2.ID && a.ColorThreeID == color3.ID);
+
+            if (analogous == null)
+            {
+                return Ok(false);
+            }
 
 
-            //return Ok(false);
-                // If id1 has a palette, compare other palette colors to id2 and id3
-            // Check for palettes that have all three id colors
-            // If palette is found, return true;
-            // If not, return false;
-        //}
+            return Ok(true);
+        }
 
     }
 }

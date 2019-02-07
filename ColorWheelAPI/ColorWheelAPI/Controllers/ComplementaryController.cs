@@ -14,7 +14,7 @@ namespace ColorWheelAPI.Controllers
     [ApiController]
     public class ComplementaryController : ControllerBase
     {
-        private ColorWheelDbContext _context;
+        public ColorWheelDbContext _context;
 
 
         /// <summary>

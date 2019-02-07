@@ -52,7 +52,13 @@ namespace ColorWheelAPI.Controllers
         }
 
 
-
+        /// <summary>
+        /// This action takes a number of colors, checks that they exist in the database, checks if they exist as a palette in the database, and then returns true or false depending on whether or not the colors match the intended color palette.
+        /// </summary>
+        /// <param name="id1"></param>
+        /// <param name="id2"></param>
+        /// <param name="id3"></param>
+        /// <returns>True or False</returns>
         [HttpGet("{id1},{id2},{id3}")]
         public IActionResult Get(string id1, string id2, string id3)
         {

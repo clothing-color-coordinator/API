@@ -26,18 +26,20 @@ namespace ColorWheelAPIxUnitTDD
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options1))
+            using (ColorWheelDbContext dbContext1 = new ColorWheelDbContext(options1))
             {
                 Color color = new Color();
                 color.ColorName = "Blue";
                 Analogous analogous = new Analogous();
                 analogous.ColorOneID = 1;
-                dbContext.Add(color);
-                dbContext.Add(analogous);
-                dbContext.SaveChanges();
+                analogous.ColorTwoID = 2;
+                analogous.ColorThreeID = 12;
+                dbContext1.Add(color);
+                dbContext1.Add(analogous);
+                dbContext1.SaveChanges();
 
                 var expected = "Blue";
-                var controller = new AnalogousController(dbContext);
+                var controller = new AnalogousController(dbContext1);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);
@@ -50,19 +52,20 @@ namespace ColorWheelAPIxUnitTDD
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options2))
+            using (ColorWheelDbContext dbContext2 = new ColorWheelDbContext(options2))
             {
                 Color color = new Color();
                 color.ColorName = "Green";
                 Analogous analogous = new Analogous();
-                analogous.ColorOneID = 1;
-                analogous.ColorTwoID = 2;
-                dbContext.Add(color);
-                dbContext.Add(analogous);
-                dbContext.SaveChanges();
+                analogous.ColorOneID = 2;
+                analogous.ColorTwoID = 3;
+                analogous.ColorThreeID = 1;
+                dbContext2.Add(color);
+                dbContext2.Add(analogous);
+                dbContext2.SaveChanges();
 
                 var expected = "Green";
-                var controller = new AnalogousController(dbContext);
+                var controller = new AnalogousController(dbContext2);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);
@@ -75,20 +78,20 @@ namespace ColorWheelAPIxUnitTDD
                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
                .Options;
 
-            using (ColorWheelDbContext dbContext = new ColorWheelDbContext(options3))
+            using (ColorWheelDbContext dbContext3 = new ColorWheelDbContext(options3))
             {
                 Color color = new Color();
                 color.ColorName = "Yellow";
                 Analogous analogous = new Analogous();
-                analogous.ColorOneID = 1;
-                analogous.ColorTwoID = 2;
-                analogous.ColorThreeID = 3;
-                dbContext.Add(color);
-                dbContext.Add(analogous);
-                dbContext.SaveChanges();
+                analogous.ColorOneID = 9;
+                analogous.ColorTwoID = 10;
+                analogous.ColorThreeID = 8;
+                dbContext3.Add(color);
+                dbContext3.Add(analogous);
+                dbContext3.SaveChanges();
 
                 var expected = "Yellow";
-                var controller = new AnalogousController(dbContext);
+                var controller = new AnalogousController(dbContext3);
                 var actionResult = controller.Get(expected);
                 var okObjectResult = actionResult as OkObjectResult;
                 Assert.IsType<OkObjectResult>(actionResult);

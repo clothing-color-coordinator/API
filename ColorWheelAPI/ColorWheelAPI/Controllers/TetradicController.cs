@@ -60,27 +60,29 @@ namespace ColorWheelAPI.Controllers
         /// <param name="id2"></param>
         /// <param name="id3"></param>
         /// <returns>True or False</returns>
-        [HttpGet("{id1},{id2},{id3}")]
-        public IActionResult Get(string id1, string id2, string id3)
+        [HttpGet("{id1},{id2},{id3},id4")]
+        public IActionResult Get(string id1, string id2, string id3, string id4)
         {
             Color color1 = _context.Colors.FirstOrDefault(c => c.ColorName == id1);
             Color color2 = _context.Colors.FirstOrDefault(c => c.ColorName == id2);
             Color color3 = _context.Colors.FirstOrDefault(c => c.ColorName == id3);
+            Color color4 = _context.Colors.FirstOrDefault(c => c.ColorName == id4);
 
-            if (color1 == null || color2 == null || color3 == null)
+            if (color1 == null || color2 == null || color3 == null || color4 == null)
             {
                 return NotFound();
             }
 
-            Analogous palette = new Analogous();
+            Tetradic palette = new Tetradic();
 
             palette.ColorOneID = color1.ID;
-            palette.ColorTwoID = color3.ID;
-            palette.ColorThreeID = color2.ID;
+            palette.ColorTwoID = color2.ID;
+            palette.ColorThreeID = color3.ID;
+            palette.ColorFourID = color4.ID;
 
-            Analogous analogous = _context.Analogous.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
+            Tetradic tetradic = _context.Tetradic.FirstOrDefault(a => a.ColorOneID == palette.ColorOneID);
 
-            if (palette.ColorOneID == analogous.ColorOneID && palette.ColorTwoID == analogous.ColorTwoID && palette.ColorThreeID == analogous.ColorThreeID)
+            if (palette.ColorOneID == tetradic.ColorOneID && palette.ColorTwoID == tetradic.ColorTwoID && palette.ColorThreeID == tetradic.ColorThreeID && tetradic.ColorFourID == palette.ColorFourID)
             {
                 return Ok(true);
             }

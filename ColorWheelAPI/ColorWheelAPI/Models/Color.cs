@@ -24,5 +24,12 @@ namespace ColorWheelAPI.Models
         {
             ID = id;
         }
+
+        public Color(int id, string colorName, string hexCode)
+        {
+            ID = id;
+            ColorName = colorName;
+            HexCode = hexCode;
+        }
     }
 }

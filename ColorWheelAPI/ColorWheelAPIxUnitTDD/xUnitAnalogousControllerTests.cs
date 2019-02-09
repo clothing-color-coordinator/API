@@ -104,6 +104,28 @@ namespace ColorWheelAPIxUnitTDD
 
     public class CheckAnalgousTests
     {
-        
+        [Fact]
+        public void CanReturn200StatusCode()
+        {
+
+        }
+
+        [Fact]
+        public void CanReturn400StatusCode()
+        {
+
+        }
+
+        [Fact]
+        public void CanReturnTrue()
+        {
+
+        }
+
+        [Fact]
+        public void CanReturnFalse()
+        {
+
+        }
     }
 }

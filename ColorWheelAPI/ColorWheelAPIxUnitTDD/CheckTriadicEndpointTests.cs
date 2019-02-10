@@ -22,25 +22,25 @@ namespace ColorWheelAPIxUnitTDD
             using (ColorWheelDbContext fakeDB = new ColorWheelDbContext(fakeOptions))
             {
                 Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
-                Color blueViolet = new Color { ID = 6, ColorName = "Blue-Violet", HexCode = "#4424D6" };
-                Color redViolet = new Color { ID = 8, ColorName = "Red-Violet", HexCode = "#C21460" };
+                Color blue = new Color { ID = 5, ColorName = "Blue", HexCode = "#0247FE" };
+                Color red = new Color { ID = 9, ColorName = "Red", HexCode = "#FE2712" };
 
-                SplitComplementary splitComplementary = new SplitComplementary();
-                splitComplementary.ColorOneID = 1;
-                splitComplementary.ColorTwoID = 6;
-                splitComplementary.ColorThreeID = 8;
+                Triadic triadic = new Triadic();
+                triadic.ColorOneID = 1;
+                triadic.ColorTwoID = 5;
+                triadic.ColorThreeID = 9;
 
                 fakeDB.Add(yellow);
-                fakeDB.Add(blueViolet);
-                fakeDB.Add(redViolet);
-                fakeDB.Add(splitComplementary);
+                fakeDB.Add(blue);
+                fakeDB.Add(red);
+                fakeDB.Add(triadic);
                 fakeDB.SaveChanges();
 
                 var color1 = "Yellow";
-                var color2 = "Blue-Violet";
-                var color3 = "Red-Violet";
+                var color2 = "Blue";
+                var color3 = "Red";
 
-                var controller = new SplitComplementaryController(fakeDB);
+                var controller = new TriadicController(fakeDB);
                 var actionResult = controller.Get(color1, color2, color3);
                 var okObjectResult = actionResult as OkObjectResult;
 
@@ -58,29 +58,29 @@ namespace ColorWheelAPIxUnitTDD
             using (ColorWheelDbContext fakeDB = new ColorWheelDbContext(moreFakeOptions))
             {
                 Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
-                Color blueViolet = new Color { ID = 6, ColorName = "Blue-Violet", HexCode = "#4424D6" };
-                Color redViolet = new Color { ID = 8, ColorName = "Red-Violet", HexCode = "#C21460" };
+                Color blue = new Color { ID = 5, ColorName = "Blue", HexCode = "#0247FE" };
+                Color red = new Color { ID = 9, ColorName = "Red", HexCode = "#FE2712" };
 
-                SplitComplementary splitComplementary = new SplitComplementary();
-                splitComplementary.ColorOneID = 1;
-                splitComplementary.ColorTwoID = 6;
-                splitComplementary.ColorThreeID = 8;
+                Triadic triadic = new Triadic();
+                triadic.ColorOneID = 1;
+                triadic.ColorTwoID = 5;
+                triadic.ColorThreeID = 9;
 
                 fakeDB.Add(yellow);
-                fakeDB.Add(blueViolet);
-                fakeDB.Add(redViolet);
-                fakeDB.Add(splitComplementary);
+                fakeDB.Add(blue);
+                fakeDB.Add(red);
+                fakeDB.Add(triadic);
                 fakeDB.SaveChanges();
 
                 var color1 = "Yellow";
                 var color2 = "Blue-Violet";
                 var color3 = "Red";
 
-                var controller = new SplitComplementaryController(fakeDB);
-                var moreActionResult = controller.Get(color1, color2, color3);
-                var notFoundResult = moreActionResult as NotFoundResult;
+                var controller = new TriadicController(fakeDB);
+                var actionResult = controller.Get(color1, color2, color3);
+                var notFoundResult = actionResult as NotFoundResult;
 
-                Assert.IsType<NotFoundResult>(moreActionResult);
+                Assert.IsType<NotFoundResult>(actionResult);
             }
         }
     }

@@ -22,26 +22,22 @@ namespace ColorWheelAPIxUnitTDD
             using (ColorWheelDbContext fakeDB = new ColorWheelDbContext(fakeOptions))
             {
                 Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
-                Color yellowOrange = new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" };
-                Color yellowGreen = new Color { ID = 2, ColorName = "Yellow-Green", HexCode = "#B2D732" };
+                Color violet = new Color { ID = 7, ColorName = "Violet", HexCode = "#8601AF" };
 
-                Analogous analogous = new Analogous();
-                analogous.ColorOneID = 1;
-                analogous.ColorTwoID = 2;
-                analogous.ColorThreeID = 12;
+                Complementary complementary = new Complementary();
+                complementary.ColorOneID = 1;
+                complementary.ColorTwoID = 7;
 
                 fakeDB.Add(yellow);
-                fakeDB.Add(yellowOrange);
-                fakeDB.Add(yellowGreen);
-                fakeDB.Add(analogous);
+                fakeDB.Add(violet);
+                fakeDB.Add(complementary);
                 fakeDB.SaveChanges();
 
                 var color1 = "Yellow";
-                var color2 = "Yellow-Orange";
-                var color3 = "Yellow-Green";
+                var color2 = "Violet";
 
-                var controller = new AnalogousController(fakeDB);
-                var actionResult = controller.Get(color1, color2, color3);
+                var controller = new ComplementaryController(fakeDB);
+                var actionResult = controller.Get(color1, color2);
                 var okObjectResult = actionResult as OkObjectResult;
 
                 Assert.IsType<OkObjectResult>(actionResult);
@@ -59,25 +55,21 @@ namespace ColorWheelAPIxUnitTDD
             {
                 Color moreYellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
                 Color moreYellowOrange = new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" };
-                Color moreYellowGreen = new Color { ID = 2, ColorName = "Yellow-Green", HexCode = "#B2D732" };
 
-                Analogous moreAnalogous = new Analogous();
-                moreAnalogous.ColorOneID = 1;
-                moreAnalogous.ColorTwoID = 2;
-                moreAnalogous.ColorThreeID = 12;
+                Complementary moreComplementary = new Complementary();
+                moreComplementary.ColorOneID = 1;
+                moreComplementary.ColorTwoID = 2;
 
                 fakeDB.Add(moreYellow);
                 fakeDB.Add(moreYellowOrange);
-                fakeDB.Add(moreYellowGreen);
-                fakeDB.Add(moreAnalogous);
+                fakeDB.Add(moreComplementary);
                 fakeDB.SaveChanges();
 
                 var moreColor1 = "Red";
                 var moreColor2 = "Yellow-Orange";
-                var moreColor3 = "Yellow-Green";
 
-                var moreController = new AnalogousController(fakeDB);
-                var moreActionResult = moreController.Get(moreColor1, moreColor2, moreColor3);
+                var moreController = new ComplementaryController(fakeDB);
+                var moreActionResult = moreController.Get(moreColor1, moreColor2);
                 var notFoundResult = moreActionResult as NotFoundResult;
 
                 Assert.IsType<NotFoundResult>(moreActionResult);

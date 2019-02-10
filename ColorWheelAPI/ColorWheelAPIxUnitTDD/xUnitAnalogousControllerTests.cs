@@ -141,7 +141,7 @@ namespace ColorWheelAPIxUnitTDD
         }
 
         [Fact]
-        public void CanReturnNotFound()
+        public void CanReturn404StatusCode()
         {
             DbContextOptions<ColorWheelDbContext> fakeOptions = new DbContextOptionsBuilder<ColorWheelDbContext>()
                 .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
@@ -176,16 +176,5 @@ namespace ColorWheelAPIxUnitTDD
             }
         }
 
-        [Fact]
-        public void CanReturnTrue()
-        {
-
-        }
-
-        [Fact]
-        public void CanReturnFalse()
-        {
-
-        }
     }
 }

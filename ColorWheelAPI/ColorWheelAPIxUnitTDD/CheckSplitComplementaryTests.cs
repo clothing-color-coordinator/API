@@ -25,22 +25,22 @@ namespace ColorWheelAPIxUnitTDD
                 Color yellowOrange = new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" };
                 Color yellowGreen = new Color { ID = 2, ColorName = "Yellow-Green", HexCode = "#B2D732" };
 
-                Analogous analogous = new Analogous();
-                analogous.ColorOneID = 1;
-                analogous.ColorTwoID = 2;
-                analogous.ColorThreeID = 12;
+                SplitComplementary splitComplementary = new SplitComplementary();
+                splitComplementary.ColorOneID = 1;
+                splitComplementary.ColorTwoID = 2;
+                splitComplementary.ColorThreeID = 12;
 
                 fakeDB.Add(yellow);
                 fakeDB.Add(yellowOrange);
                 fakeDB.Add(yellowGreen);
-                fakeDB.Add(analogous);
+                fakeDB.Add(splitComplementary);
                 fakeDB.SaveChanges();
 
                 var color1 = "Yellow";
                 var color2 = "Yellow-Orange";
                 var color3 = "Yellow-Green";
 
-                var controller = new AnalogousController(fakeDB);
+                var controller = new SplitComplementaryController(fakeDB);
                 var actionResult = controller.Get(color1, color2, color3);
                 var okObjectResult = actionResult as OkObjectResult;
 

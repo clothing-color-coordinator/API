@@ -31,50 +31,34 @@ Each endpoint takes a color name and returns a JSON object for their specific co
 	- GetTetradicPalette: Returns [tetradic palette](https://en.wikipedia.org/wiki/Color_scheme#Tetradic).
 	- GetTriadicPalette: Returns [triadic palette](https://en.wikipedia.org/wiki/Color_scheme#Triadic).
 
+The Color Wheel API can also take a palette of color names and tell you if it matches a specific color scheme:
+	- CheckAnalogous: Returns true if the three colors match an Analogous palette and false if it doesn't.
+	- CheckComplementary: Returns true if the three colors match a Complementary palette and false if it doesn't.
+	- CheckSplitComplementary: Returns true if the three colors match an Split Complementary palette and false if it doesn't.
+	- CheckTetradic: Returns true if the four colors match an Tetradic palette and false if it doesn't.
+	- CheckTriadic: Returns true if the three colors match a Triadic palette and false if it doesn't.
+
 ## endpoints
-### getanalogouspalette
+### get\[scheme\]palette example
 ___
 #### request
 `https://colorwheelapi20190205024526.azurewebsites.net/api/GetAnalogousPalette/Red `
 
 #### response
-![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getAnalogousResponse.PNG "GetAnalogousPalette")
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getAnalogousResponse.PNG "Get Analogous Palette")
 
-### getcomplementarypalette
+### check\[scheme\] example
 ___
 #### request
-`https://colorwheelapi20190205024526.azurewebsites.net/api/GetComplementaryPalette/Red `
+`https://colorwheelapi20190205024526.azurewebsites.net/api/CheckAnalogous/Yellow,Yellow-Orange,Yellow-Green
 
 #### response
-![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getComplementaryResponse.PNG "GetAnalogousPalette")
-
-### getsplitcomplementarypalette
-___
-#### request
-`https://colorwheelapi20190205024526.azurewebsites.net/api/GetSplitComplementaryPalette/Red `
-
-#### response
-![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getSplitComplementaryResponse.PNG "GetAnalogousPalette")
-
-### gettetradicalette
-___
-#### request
-`https://colorwheelapi20190205024526.azurewebsites.net/api/GetTetradicPalette/Red `
-
-#### response
-![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getTetradicResponse.PNG "GetAnalogousPalette")
-
-### gettriadicpalette
-___
-#### request
-`https://colorwheelapi20190205024526.azurewebsites.net/api/GetTriadicPalette/Red `
-
-#### response
-![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getTriadicResponse.PNG "GetAnalogousPalette")
-
+![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/checkAnalogousResponse.PNG "Check Analogous")
 
 ## methods
-Each controller has a single Get method. The method verifies the inbound color exists in the database, creates a palette if the color is in the specified palette table, and returns an error if either the palette or color is null. If not, it creates a Color object for each color in the palette, puts it in a list, and then returns the list of Color objects via the ASP.NET Core OK method.
+Each controller has a two Get methods. One method handles the Get\[scheme\]Palette route and takes a single color, verifies the inbound color exists in the database, creates a palette if the color is in the specified palette table, and returns an error if either the palette or color is null. If not, it creates a Color object for each color in the palette, puts it in a list, and then returns the list of Color objects via the ASP.NET Core OK method.
+The other Get method handles the Check\[scheme\] route. It takes in 3-4 colors, verifies they are in the database, and returns an error if they are not. If they are in the database, the colors are thrown into a palette and then compared against the scheme specified in the route. If it exists, the colors match the scheme and a true response is sent back. If it doesn't, the colors don't match within the scheme and a false response is sent. 
+
 
 ## schema
 ![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/MidtermTables.PNG "Database Schema")

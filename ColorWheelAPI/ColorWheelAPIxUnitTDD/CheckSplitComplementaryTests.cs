@@ -22,23 +22,23 @@ namespace ColorWheelAPIxUnitTDD
             using (ColorWheelDbContext fakeDB = new ColorWheelDbContext(fakeOptions))
             {
                 Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
-                Color yellowOrange = new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" };
-                Color yellowGreen = new Color { ID = 2, ColorName = "Yellow-Green", HexCode = "#B2D732" };
+                Color blueViolet = new Color { ID = 6, ColorName = "Blue-Violet", HexCode = "#4424D6" };
+                Color redViolet = new Color { ID = 8, ColorName = "Red-Violet", HexCode = "#C21460" };
 
                 SplitComplementary splitComplementary = new SplitComplementary();
                 splitComplementary.ColorOneID = 1;
-                splitComplementary.ColorTwoID = 2;
-                splitComplementary.ColorThreeID = 12;
+                splitComplementary.ColorTwoID = 6;
+                splitComplementary.ColorThreeID = 8;
 
                 fakeDB.Add(yellow);
-                fakeDB.Add(yellowOrange);
-                fakeDB.Add(yellowGreen);
+                fakeDB.Add(blueViolet);
+                fakeDB.Add(redViolet);
                 fakeDB.Add(splitComplementary);
                 fakeDB.SaveChanges();
 
                 var color1 = "Yellow";
-                var color2 = "Yellow-Orange";
-                var color3 = "Yellow-Green";
+                var color2 = "Blue-Violet";
+                var color3 = "Red-Violet";
 
                 var controller = new SplitComplementaryController(fakeDB);
                 var actionResult = controller.Get(color1, color2, color3);

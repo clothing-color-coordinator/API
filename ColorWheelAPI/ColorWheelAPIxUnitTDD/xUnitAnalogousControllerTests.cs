@@ -143,7 +143,37 @@ namespace ColorWheelAPIxUnitTDD
         [Fact]
         public void CanReturnNotFound()
         {
-            
+            DbContextOptions<ColorWheelDbContext> fakeOptions = new DbContextOptionsBuilder<ColorWheelDbContext>()
+                .UseInMemoryDatabase(databaseName: "ColorWheelDbContext")
+                .Options;
+
+            using (ColorWheelDbContext fakeDB = new ColorWheelDbContext(fakeOptions))
+            {
+                Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
+                Color yellowOrange = new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" };
+                Color yellowGreen = new Color { ID = 2, ColorName = "Yellow-Green", HexCode = "#B2D732" };
+
+                Analogous analogous = new Analogous();
+                analogous.ColorOneID = 1;
+                analogous.ColorTwoID = 2;
+                analogous.ColorThreeID = 12;
+
+                fakeDB.Add(yellow);
+                fakeDB.Add(yellowOrange);
+                fakeDB.Add(yellowGreen);
+                fakeDB.Add(analogous);
+                fakeDB.SaveChanges();
+
+                var color1 = "Red";
+                var color2 = "Yellow-Orange";
+                var color3 = "Yellow-Green";
+
+                var controller = new AnalogousController(fakeDB);
+                var actionResult = controller.Get(color1, color2, color3);
+                var notFoundResult = actionResult as NotFoundResult;
+
+                Assert.IsType<NotFoundResult>(actionResult);
+            }
         }
 
         [Fact]

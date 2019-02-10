@@ -22,8 +22,9 @@ namespace ColorWheelAPIxUnitTDD
             using (ColorWheelDbContext fakeDB = new ColorWheelDbContext(fakeOptions))
             {
                 Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
-                Color blueViolet = new Color { ID = 6, ColorName = "Blue-Violet", HexCode = "#4424D6" };
-                Color redViolet = new Color { ID = 8, ColorName = "Red-Violet", HexCode = "#C21460" };
+                Color violet = new Color { ID = 7, ColorName = "Violet", HexCode = "#8601AF" };
+                Color green = new Color { ID = 3, ColorName = "Green", HexCode = "#66B032" };
+                Color red = new Color { ID = 9, ColorName = "Red", HexCode = "#FE2712" }
 
                 SplitComplementary splitComplementary = new SplitComplementary();
                 splitComplementary.ColorOneID = 1;

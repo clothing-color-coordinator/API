@@ -45,6 +45,7 @@ namespace ColorWheelAPIxUnitTDD
                 Assert.IsType<OkObjectResult>(actionResult);
             }
         }
+
         [Fact]
         public void AnalogousController2()
         {
@@ -71,6 +72,7 @@ namespace ColorWheelAPIxUnitTDD
                 Assert.IsType<OkObjectResult>(actionResult);
             }
         }
+
         [Fact]
         public void AnalogousController3()
         {

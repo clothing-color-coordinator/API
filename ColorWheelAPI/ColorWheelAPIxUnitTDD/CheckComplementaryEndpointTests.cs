@@ -65,8 +65,8 @@ namespace ColorWheelAPIxUnitTDD
                 fakeDB.Add(moreComplementary);
                 fakeDB.SaveChanges();
 
-                var moreColor1 = "Red";
-                var moreColor2 = "Yellow-Orange";
+                var moreColor1 = "Yellow";
+                var moreColor2 = "Red";
 
                 var moreController = new ComplementaryController(fakeDB);
                 var moreActionResult = moreController.Get(moreColor1, moreColor2);

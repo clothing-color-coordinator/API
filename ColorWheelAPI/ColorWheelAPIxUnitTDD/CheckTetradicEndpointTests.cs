@@ -24,25 +24,28 @@ namespace ColorWheelAPIxUnitTDD
                 Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
                 Color violet = new Color { ID = 7, ColorName = "Violet", HexCode = "#8601AF" };
                 Color green = new Color { ID = 3, ColorName = "Green", HexCode = "#66B032" };
-                Color red = new Color { ID = 9, ColorName = "Red", HexCode = "#FE2712" }
+                Color red = new Color { ID = 9, ColorName = "Red", HexCode = "#FE2712" };
 
-                SplitComplementary splitComplementary = new SplitComplementary();
-                splitComplementary.ColorOneID = 1;
-                splitComplementary.ColorTwoID = 6;
-                splitComplementary.ColorThreeID = 8;
+                Tetradic tetradic = new Tetradic();
+                tetradic.ColorOneID = 1;
+                tetradic.ColorTwoID = 7;
+                tetradic.ColorThreeID = 3;
+                tetradic.ColorFourID = 9;
 
                 fakeDB.Add(yellow);
-                fakeDB.Add(blueViolet);
-                fakeDB.Add(redViolet);
-                fakeDB.Add(splitComplementary);
+                fakeDB.Add(violet);
+                fakeDB.Add(green);
+                fakeDB.Add(red);
+                fakeDB.Add(tetradic);
                 fakeDB.SaveChanges();
 
                 var color1 = "Yellow";
-                var color2 = "Blue-Violet";
-                var color3 = "Red-Violet";
+                var color2 = "Violet";
+                var color3 = "Green";
+                var color4 = "Red";
 
-                var controller = new SplitComplementaryController(fakeDB);
-                var actionResult = controller.Get(color1, color2, color3);
+                var controller = new TetradicController(fakeDB);
+                var actionResult = controller.Get(color1, color2, color3, color4);
                 var okObjectResult = actionResult as OkObjectResult;
 
                 Assert.IsType<OkObjectResult>(actionResult);

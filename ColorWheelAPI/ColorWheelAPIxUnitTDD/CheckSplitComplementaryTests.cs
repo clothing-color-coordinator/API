@@ -57,27 +57,27 @@ namespace ColorWheelAPIxUnitTDD
 
             using (ColorWheelDbContext fakeDB = new ColorWheelDbContext(moreFakeOptions))
             {
-                Color moreYellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
-                Color moreYellowOrange = new Color { ID = 12, ColorName = "Yellow-Orange", HexCode = "#FCCC1A" };
-                Color moreYellowGreen = new Color { ID = 2, ColorName = "Yellow-Green", HexCode = "#B2D732" };
+                Color yellow = new Color { ID = 1, ColorName = "Yellow", HexCode = "#FEFE33" };
+                Color blueViolet = new Color { ID = 6, ColorName = "Blue-Violet", HexCode = "#4424D6" };
+                Color redViolet = new Color { ID = 8, ColorName = "Red-Violet", HexCode = "#C21460" };
 
-                Analogous moreAnalogous = new Analogous();
-                moreAnalogous.ColorOneID = 1;
-                moreAnalogous.ColorTwoID = 2;
-                moreAnalogous.ColorThreeID = 12;
+                SplitComplementary splitComplementary = new SplitComplementary();
+                splitComplementary.ColorOneID = 1;
+                splitComplementary.ColorTwoID = 6;
+                splitComplementary.ColorThreeID = 8;
 
-                fakeDB.Add(moreYellow);
-                fakeDB.Add(moreYellowOrange);
-                fakeDB.Add(moreYellowGreen);
-                fakeDB.Add(moreAnalogous);
+                fakeDB.Add(yellow);
+                fakeDB.Add(blueViolet);
+                fakeDB.Add(redViolet);
+                fakeDB.Add(splitComplementary);
                 fakeDB.SaveChanges();
 
-                var moreColor1 = "Red";
-                var moreColor2 = "Yellow-Orange";
-                var moreColor3 = "Yellow-Green";
+                var color1 = "Yellow";
+                var color2 = "Blue-Violet";
+                var color3 = "Red";
 
-                var moreController = new AnalogousController(fakeDB);
-                var moreActionResult = moreController.Get(moreColor1, moreColor2, moreColor3);
+                var controller = new SplitComplementaryController(fakeDB);
+                var moreActionResult = controller.Get(color1, color2, color3);
                 var notFoundResult = moreActionResult as NotFoundResult;
 
                 Assert.IsType<NotFoundResult>(moreActionResult);

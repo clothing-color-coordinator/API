@@ -73,8 +73,8 @@ The other Get method handles the Check\[scheme\] route. It takes in 3-4 colors, 
 > Version 1.5 July 19, 2023 (small changes to ensure API still running on Azure -Carlos)
 
 ## authors
-> **Carlos Castillo** - [castillocarlosr](https://github.com/castillocarlosr])
-> How to contact Carlos? 
+> **Carlos Castillo** - [castillocarlosr](https://github.com/castillocarlosr])   
+>  How to contact Carlos? 
 ```sh
 xxp7cl@m.hackerx.org 
 ```

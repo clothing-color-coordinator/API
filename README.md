@@ -64,18 +64,21 @@ The other Get method handles the Check\[scheme\] route. It takes in 3-4 colors, 
 ![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/MidtermTables.PNG "Database Schema")
 
 ## notes
-- Colors sent to an endpoint must be sent via a capitalize string, i.e. Red
-- Colors that are made up of two color names must have a both names capitalized and a dash between them, i.e. Yellow-Green
+- Colors sent to an endpoint must be sent via a capitalized string, i.e. Red
+- Colors that are made up of two color names must have both names capitalized and a dash between them, i.e. Yellow-Green
 
 ## versions:
 > Version 1.0  February 01, 2019
-
 > Version 1.4 February 05, 2019
+> Version 1.5 July 19, 2023 (small changes to ensure API still running on Azure -Carlos)
 
 ## authors
-> **Carlos Castillo** - *Initial work* - [castillocarlosr](https://github.com/castillocarlosr])
-
-> **Charles Clemens** - *Initial work* - [CClemensJr](https://github.com/CClemensJr)
+> **Carlos Castillo** - [castillocarlosr](https://github.com/castillocarlosr])
+> How to contact Carlos? 
+```sh
+xxp7cl@m.hackerx.org 
+```
+> **Charles Clemens** - [CClemensJr](https://github.com/CClemensJr)
 
 ## license
 > This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

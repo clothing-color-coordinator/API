@@ -68,9 +68,9 @@ The other Get method handles the Check\[scheme\] route. It takes in 3-4 colors, 
 - Colors that are made up of two color names must have both names capitalized and a dash between them, i.e. Yellow-Green
 
 ## versions:
-> Version 1.0  February 01, 2019
-> Version 1.4 February 05, 2019
-> Version 1.5 July 19, 2023 (small changes to ensure API still running on Azure -Carlos)
+> Version 1.0  February 01, 2019  
+> Version 1.4 February 05, 2019  
+> Version 1.5 July 19, 2023 (small changes to ensure API still running on Azure -Carlos)  
 
 ## authors
 > **Carlos Castillo** - [castillocarlosr](https://github.com/castillocarlosr])   

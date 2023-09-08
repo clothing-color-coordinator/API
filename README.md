@@ -43,7 +43,8 @@ The Color Wheel API can also take a palette of color names and tell you if it ma
 ___
 #### request
 `https://colorwheelapi20190205024526.azurewebsites.net/api/GetAnalogousPalette/Red `
-
+___
+(NOTE:) I may need to turn off the API from time to time in order to keep hosting costs down.
 #### response
 ![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/getAnalogousResponse.PNG "Get Analogous Palette")
 

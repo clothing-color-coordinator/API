@@ -53,6 +53,7 @@ ___
 #### request
 `https://colorwheelapi20190205024526.azurewebsites.net/api/CheckAnalogous/Yellow,Yellow-Orange,Yellow-Green
 
+(NOTE:) I may need to turn off the API from time to time in order to keep hosting costs down.
 #### response
 ![alt text](https://github.com/clothing-color-coordinator/API/blob/master/assets/checkAnalogousResponse.PNG "Check Analogous")
 
